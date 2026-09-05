@@ -1,5 +1,7 @@
 # Cloudflare cut-over for ariamena.com
 
+> Update: the site is connected as the Cloudflare **Pages** project `ariamena-site-v2`. `wrangler.jsonc` pins the build output folder to `out`, so the dashboard cannot publish the wrong folder again. Every push to `main` rebuilds and deploys. The Workers variant remains available in `wrangler.workers.jsonc`.
+
 The current site is a Cloudflare Worker named `ariamena-website` with the custom domain attached. The new site deploys as the same Worker (static assets only), so the domain, TLS, and Cloudflare settings stay untouched.
 
 ## One-time setup (dashboard, about ten minutes)

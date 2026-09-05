@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers, static assets only (no Worker script).
+  // Deploy: npm run build && npx wrangler deploy
+  // The name matches the Worker that serves ariamena.com today, so a deploy replaces it in place
+  // and keeps the custom domain. Use a different name to deploy a preview Worker instead.
+  "name": "ariamena-website",
+  "compatibility_date": "2026-09-05",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

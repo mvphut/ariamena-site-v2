@@ -1,13 +1,8 @@
 {
-  // Cloudflare Workers, static assets only (no Worker script).
-  // Deploy: npm run build && npx wrangler deploy
-  // The name matches the Worker that serves ariamena.com today, so a deploy replaces it in place
-  // and keeps the custom domain. Use a different name to deploy a preview Worker instead.
-  "name": "ariamena-website",
+  // Cloudflare Pages configuration (source of truth for the Git-connected project "ariamena-site-v2").
+  // Build command: npm run build. Output folder: out. Headers and redirects come from public/_headers and public/_redirects.
+  // For a Workers static-assets deploy instead, use: npx wrangler deploy --config wrangler.workers.jsonc
+  "name": "ariamena-site-v2",
   "compatibility_date": "2026-09-05",
-  "assets": {
-    "directory": "./out",
-    "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
-  }
+  "pages_build_output_dir": "./out"
 }
