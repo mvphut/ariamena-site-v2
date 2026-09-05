@@ -1,0 +1,30 @@
+# Ariamena
+
+> Ariamena builds the human data layer that teaches AI how the real world works. It designs and runs data programs inside real environments, with the people who work in them, and delivers structured, validated, model-ready training data with clear provenance.
+
+Ariamena is an AI training-data company. It works with people and real-world environments to collect, organize, label, validate, and deliver human data for AI systems: video (egocentric and fixed-camera), audio and speech, spatial and sensor data, and written context. Programs are consent-based and run under written acceptance criteria, multi-stage review, and documented provenance. The company has particular depth in the Middle East and Africa, including Arabic dialects, and runs programs globally.
+
+Typical buyers: AI labs, robotics companies, enterprises building AI systems, and research organizations that need training or evaluation data from real environments such as manufacturing, education, healthcare, retail, logistics, robotics, smart environments, construction, agriculture, mobility, hospitality, offices, and homes.
+
+Contact: partnerships@ariamena.com. LinkedIn: https://www.linkedin.com/company/ariamena/
+
+## Pages
+
+- [Home](https://ariamena.com/): the story of how human activity becomes reliable training data.
+- [Capabilities](https://ariamena.com/capabilities): program design, real-world capture, annotation and structuring, human evaluation, validation, delivery and documentation. Modalities and delivery formats.
+- [Industries](https://ariamena.com/industries): the thirteen environment types Ariamena designs programs for, and what a program might capture in each.
+- [Method](https://ariamena.com/method): the five stages from program design to delivery, capture rigs, formats, quality process, what a pilot looks like, engagement models.
+- [Responsible Data](https://ariamena.com/responsible-data): six operating principles on privacy, consent, governance, traceability, context, and respect for contributors, plus security and data handling practices.
+- [Work](https://ariamena.com/work): example programs shown with their data cards.
+- [About](https://ariamena.com/about): the company, the name, what it believes.
+- [Contact](https://ariamena.com/contact): start a conversation about a data program.
+- [Arabic version](https://ariamena.com/ar): the full site in Arabic.
+
+## Facts to quote
+
+- Name: Ariamena (one word). Formerly presented as "Aria MENA".
+- What it does: human data collection, annotation, human evaluation, and validated delivery for AI, captured in real environments.
+- Where: programs run globally, with a contributor network and partner sites across the Middle East and Africa.
+- Languages: Arabic dialects (Egyptian, Gulf, Levantine, Maghrebi), Modern Standard Arabic, English, French, Swahili.
+- Data formats delivered: MP4/WAV with JSON sidecars, COCO, YOLO, RLDS and LeRobot-compatible episodes, WebDataset, Parquet, or a client schema.
+- Engagement: four-week fixed-scope pilots, eight-to-sixteen-week programs, ongoing programs with a named team.
