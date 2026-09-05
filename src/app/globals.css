@@ -2,16 +2,16 @@
   --warm: #f4efe7;
   --mineral: #e6dccb;
   --clay: #c9a98c;
-  --sienna: #b1562f;
+  --sienna: #984624;
   --ink: #1c1a17;
   --ink-2: #4a453e;
-  --ink-3: #7a746b;
+  --ink-3: #66605a;
   --graphite: #1b1d22;
   --black: #0b0c0f;
   --indigo: #141a3a;
   --paper: #f2f4f8;
   --mist: #a5acba;
-  --mist-2: #6f7684;
+  --mist-2: #8189a0;
   --cobalt: #2b5bff;
   --cobalt-2: #1f47d6;
   --cyan: #5ee4ff;
@@ -347,9 +347,49 @@ svg {
   transform: none;
 }
 
+/* CSS-driven entrance for above-the-fold content: paints without waiting for JavaScript */
+.reveal.auto {
+  opacity: 1;
+  transform: none;
+  animation: revealIn 0.7s var(--ease-narrative) both;
+  animation-delay: var(--d, 0ms);
+  transition: none;
+}
+
+.words.auto .w > span {
+  transform: none;
+  animation: wordRise 0.8s var(--ease-narrative) both;
+  animation-delay: var(--d, 0ms);
+  transition: none;
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wordRise {
+  from {
+    transform: translate3d(0, 110%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .reveal.auto,
+  .words.auto .w > span {
+    animation: none;
   }
   .reveal {
     transform: none;
@@ -364,5 +404,12 @@ svg {
   *::after {
     animation-duration: 0.001s !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* On phones the headline paints immediately; the rest of the hero still animates */
+@media (max-width: 900px) {
+  .words.auto .w > span {
+    animation: none;
   }
 }

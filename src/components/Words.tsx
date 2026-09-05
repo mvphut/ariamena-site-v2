@@ -11,10 +11,11 @@ type Props = {
   stagger?: number;
   delay?: number;
   id?: string;
+  auto?: boolean;
 };
 
 /** Splits a headline into words and rises them in on intersection. `accent` marks a phrase to set in serif italic. */
-export function Words({ text, accent, as: Tag = "h2", className = "", stagger = 55, delay = 0, id }: Props) {
+export function Words({ text, accent, as: Tag = "h2", className = "", stagger = 55, delay = 0, id, auto = false }: Props) {
   const { ref, inView } = useInView<HTMLElement>(0.3);
   const words = text.split(" ");
   let accentStart = -1;
@@ -30,7 +31,7 @@ export function Words({ text, accent, as: Tag = "h2", className = "", stagger = 
     }
   }
   return (
-    <Tag ref={ref} id={id} className={`words ${inView ? "is-in" : ""} ${className}`} aria-label={text}>
+    <Tag ref={ref} id={id} className={`words ${auto ? "auto" : ""} ${inView ? "is-in" : ""} ${className}`} aria-label={text}>
       {words.map((w, i) => {
         const isAccent = i >= accentStart && i <= accentEnd;
         return (

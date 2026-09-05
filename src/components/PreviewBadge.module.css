@@ -14,7 +14,6 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
   pointer-events: none;
 }
 

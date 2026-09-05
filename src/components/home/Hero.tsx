@@ -65,14 +65,14 @@ export function Hero() {
       <div className={s.heroFog} aria-hidden="true" />
       <div className={`container ${s.heroGrid}`}>
         <div className={s.heroCopy}>
-          <Reveal as="p" className={`label ${s.eyebrow}`} delay={100}>
+          <Reveal as="p" className={`label ${s.eyebrow}`} delay={100} auto>
             {home.hero.eyebrow}
           </Reveal>
-          <Words as="h1" id="hero-title" className="display" text={home.hero.title.join(" ")} accent="real world." delay={150} stagger={70} />
-          <Reveal as="p" className={`lead ${s.heroLead}`} delay={500}>
+          <Words as="h1" id="hero-title" className="display" text={home.hero.title.join(" ")} accent="real world." delay={150} stagger={70} auto />
+          <Reveal as="p" className={`lead ${s.heroLead}`} delay={500} auto>
             {home.hero.lead}
           </Reveal>
-          <Reveal className={s.ctas} delay={650}>
+          <Reveal className={s.ctas} delay={650} auto>
             <Button href="/contact">{site.cta.primary}</Button>
             <Button href="/method" variant="link">
               {site.cta.secondary}
