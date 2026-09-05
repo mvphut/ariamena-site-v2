@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
-import { contactPage, site } from "@/content/site";
+import { contactNext, contactPage, site } from "@/content/site";
 import p from "@/components/page.module.css";
 
 export const metadata: Metadata = { title: "Contact", description: contactPage.hero.lead };
@@ -16,16 +16,32 @@ export default function Page() {
           <Reveal>
             <ContactForm />
           </Reveal>
-          <Reveal className={p.panel} delay={150}>
-            <h2>{contactPage.direct.title}</h2>
-            <p style={{ color: "var(--ink-2)", marginBottom: 18 }}>{contactPage.direct.text}</p>
-            <a href={`mailto:${site.email}`} style={{ borderBottom: "1px solid var(--line-strong)", paddingBottom: 2 }}>
-              {site.email}
-            </a>
-            <p className="label" style={{ color: "var(--ink-3)", marginTop: 28 }}>
-              Replies come from a person, not a queue.
-            </p>
-          </Reveal>
+          <div className={p.sideStack}>
+            <Reveal className={p.panel} delay={150}>
+              <h2>{contactPage.direct.title}</h2>
+              <p style={{ color: "var(--ink-2)", marginBottom: 18 }}>{contactPage.direct.text}</p>
+              <a href={`mailto:${site.email}`} style={{ borderBottom: "1px solid var(--line-strong)", paddingBottom: 2 }}>
+                {site.email}
+              </a>
+              <p className="label" style={{ color: "var(--ink-3)", marginTop: 28 }}>
+                Replies come from a person, not a queue.
+              </p>
+            </Reveal>
+            <Reveal className={p.panel} delay={250}>
+              <h2>{contactNext.title}</h2>
+              <ol className={p.steps}>
+                {contactNext.steps.map((s, i) => (
+                  <li key={s.title}>
+                    <span className={`label ${p.n}`}>0{i + 1}</span>
+                    <div>
+                      <b>{s.title}</b>
+                      <p>{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>

@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { Words } from "@/components/Words";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
-import { home, site } from "@/content/site";
+import { home, homeExtra, site } from "@/content/site";
 import { subscribeScroll } from "@/lib/scroll";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import s from "./home.module.css";
@@ -26,9 +26,9 @@ export function Hero() {
     const el = sceneRef.current;
     if (!el) return;
     return subscribeScroll((y, vh) => {
-      const p = Math.min(1, y / Math.max(1, vh));
-      el.style.transform = `translate3d(0, ${p * 60}px, 0)`;
-      el.style.opacity = String(1 - p * 0.6);
+      const p = Math.min(1, y / Math.max(1, vh * 0.9));
+      el.style.transform = `translate3d(0, ${p * 40}px, 0)`;
+      el.style.setProperty("--p", p.toFixed(3));
     });
   }, [reduced]);
 
@@ -74,7 +74,7 @@ export function Hero() {
               <g transform="translate(40 150) scale(1.08)">
                 <Environment stroke="var(--ink)" opacity={0.22} />
               </g>
-              <FigureShape pose="reaching" mode="silhouette" x={150} y={44} scale={1.25} fill="var(--clay)" />
+              <FigureShape pose="reaching" mode="silhouette" x={150} y={44} scale={1.25} fill="var(--clay)" className={s.heroSil} />
             </g>
             <g mask="url(#hmR)">
               <g transform="translate(40 150) scale(1.08)">
@@ -96,6 +96,13 @@ export function Hero() {
           <span className={`${s.tag} ${s.tagCool}`} style={{ right: "6%", bottom: "8%" }}>
             {home.hero.labels.seq}
           </span>
+          <div className={s.stream} aria-hidden="true">
+            {homeExtra.stream.map((line, i) => (
+              <span key={line} className={s.streamLine} style={{ ["--i" as string]: i }}>
+                {line}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
       <div className={s.scrollHint} aria-hidden="true">

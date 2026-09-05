@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { site } from "@/content/site";
+import { company, site } from "@/content/site";
 import { LogoMark } from "./Logo";
+import { ConsentSettingsButton } from "./CookieConsent";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -13,6 +14,7 @@ export function Footer() {
             <span>ariamena</span>
           </div>
           <p className={`${styles.tag} small`}>{site.tagline}</p>
+          <p className={`${styles.meta} label`}>{company.bases.join(" · ")}</p>
         </div>
         <nav aria-label="Footer" className={styles.cols}>
           <ul>
@@ -36,6 +38,9 @@ export function Footer() {
                 <Link href={l.href}>{l.label}</Link>
               </li>
             ))}
+            <li>
+              <ConsentSettingsButton className={styles.textBtn} />
+            </li>
           </ul>
         </nav>
       </div>

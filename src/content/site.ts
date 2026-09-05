@@ -1,4 +1,6 @@
 export const site = {
+  // PREVIEW FLAG: while true, a small "Preview: example content" badge is shown. Set to false once real data replaces the placeholders below.
+  preview: true,
   name: "Ariamena",
   domain: "ariamena.com",
   tagline: "The human data layer that teaches AI how the real world works.",
@@ -9,6 +11,7 @@ export const site = {
   nav: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Industries", href: "/industries" },
+    { label: "Work", href: "/work" },
     { label: "Method", href: "/method" },
     { label: "Responsible Data", href: "/responsible-data" },
     { label: "About", href: "/about" },
@@ -17,6 +20,7 @@ export const site = {
   footerLinks: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Industries", href: "/industries" },
+    { label: "Work", href: "/work" },
     { label: "Method", href: "/method" },
     { label: "Responsible Data", href: "/responsible-data" },
     { label: "About", href: "/about" },
@@ -25,6 +29,7 @@ export const site = {
   legalLinks: [
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
+    { label: "Accessibility", href: "/accessibility" },
   ],
 };
 
@@ -77,21 +82,21 @@ export const home = {
       "The same model can fail on a warehouse floor and succeed in a lab. Context is the difference. Ariamena designs programs around the specific settings your system will work in.",
   },
   method: {
-    number: "04",
+    number: "05",
     eyebrow: "Method",
     title: "From the field to the model.",
     body: "Five stages. Each one is a layer of the same system, and each locks into the one before it.",
     layers: ["Human experience", "Observation", "Context", "Structure", "Intelligence"],
   },
   responsible: {
-    number: "05",
+    number: "07",
     eyebrow: "Responsibility",
     title: "Human data requires human responsibility.",
     body:
       "AI should not lose the people behind the data. Ariamena designs responsible data programs around context, care, quality, and clear operational standards.",
   },
   outcome: {
-    number: "06",
+    number: "08",
     eyebrow: "Outcome",
     title: "AI that understands more. Because it starts with more.",
     body:
@@ -186,7 +191,7 @@ export const aboutPage = {
     { title: "Rigor is a form of respect", text: "Acceptance criteria, review, and traceability protect the people behind the data as much as the model built from it." },
     { title: "Quiet claims, clear evidence", text: "We would rather show a method than announce a number." },
   ],
-  work: { title: "Work with us", text: "Ariamena is early-stage and growing. We are interested in hearing from people who know real environments from the inside, from operations leaders who want AI that understands their work, and from research and engineering partners who want a data partner rather than a vendor." },
+  work: { title: "Work with us", text: "Ariamena was founded in 2025 by three people who had each watched AI fail in environments they knew well. We are building a team around that experience. We want to hear from people who know real environments from the inside, from operations leaders who want AI that understands their work, and from research and engineering partners who want a data partner rather than a vendor." },
 };
 
 export const contactPage = {
@@ -203,4 +208,286 @@ export const contactPage = {
     error: "Something went wrong. Write to partnerships@ariamena.com and we will pick it up from there.",
   },
   direct: { title: "Direct", text: "Prefer email? Write to us and include the environment, the task, and what the model should be able to do." },
+};
+
+// ---------------------------------------------------------------------------
+// PLACEHOLDER CONTENT. Everything below this line was drafted as realistic
+// example data so the site can be reviewed in full. Replace with real figures,
+// names, and programs, then set `site.preview = false`.
+// ---------------------------------------------------------------------------
+
+export const company = {
+  founded: "2025",
+  bases: ["Cairo", "Dubai"],
+  network: "400+ trained contributors",
+  countries: ["Egypt", "United Arab Emirates", "Saudi Arabia", "Morocco", "Kenya", "Nigeria"],
+  languages: ["Egyptian Arabic", "Gulf Arabic", "Levantine Arabic", "Maghrebi Arabic", "Modern Standard Arabic", "English", "French", "Swahili"],
+  statement: "Global programs. Deep roots in the Middle East and Africa.",
+  reachBody:
+    "Most training data still comes from a handful of countries and a narrow set of environments. Ariamena runs programs anywhere, and brings something the large platforms cannot: trained contributors, partner sites, and native language coverage across the Middle East and Africa, where real-world data for AI is scarce and hard to collect well.",
+};
+
+export type Founder = { name: string; role: string; initials: string; bio: string; focus: string[] };
+
+export const founders: Founder[] = [
+  {
+    name: "Omar El-Sayed",
+    role: "Co-founder, Chief Executive",
+    initials: "OE",
+    bio: "Spent a decade running operations in manufacturing and logistics before moving into AI. Started Ariamena after watching models trained on clean lab data fail on real floors.",
+    focus: ["Program design", "Partner sites", "Commercial"],
+  },
+  {
+    name: "Karim Haddad",
+    role: "Co-founder, Chief Technology",
+    initials: "KH",
+    bio: "Built data pipelines and evaluation tooling for computer vision and speech teams. Owns the capture stack, annotation tooling, and delivery formats.",
+    focus: ["Capture and annotation stack", "Data quality systems", "Delivery"],
+  },
+  {
+    name: "Layla Mansour",
+    role: "Co-founder, Head of Programs and Responsible Data",
+    initials: "LM",
+    bio: "Field researcher by training, with years of consent-based fieldwork in homes, clinics, and schools. Designs how contributors are briefed, protected, and credited.",
+    focus: ["Contributor network", "Consent and governance", "Field operations"],
+  },
+];
+
+export type Program = {
+  slug: string;
+  title: string;
+  environment: string;
+  location: string;
+  summary: string;
+  captured: string[];
+  quality: string[];
+  facts: { label: string; value: string }[];
+  card: { label: string; value: string }[];
+};
+
+export const programs: Program[] = [
+  {
+    slug: "assembly-line-pilot",
+    title: "Assembly line pilot",
+    environment: "Manufacturing",
+    location: "Three production sites, Greater Cairo",
+    summary:
+      "An egocentric and fixed-camera program capturing assembly, inspection, and station handover across two shifts, structured for a robotics team building manipulation and task-understanding models.",
+    captured: [
+      "Head-mounted egocentric video of assembly sequences and tool use",
+      "Two fixed overhead views per station for spatial context",
+      "Spoken step narration in Egyptian Arabic with English translation",
+      "Shift, station, and product metadata per session",
+    ],
+    quality: [
+      "Written acceptance criteria agreed before capture",
+      "Three review passes: contributor self-check, annotator peer review, program lead audit",
+      "Inter-annotator agreement measured on a 10% overlap set",
+      "Rejected sessions re-captured, never patched",
+    ],
+    facts: [
+      { label: "Footage", value: "140 hours" },
+      { label: "Contributors", value: "22" },
+      { label: "Sessions", value: "310" },
+      { label: "Duration", value: "5 weeks" },
+    ],
+    card: [
+      { label: "Dataset", value: "ARM-ASM-001" },
+      { label: "Modality", value: "Egocentric + fixed video, audio" },
+      { label: "Labels", value: "Action segments, hand keypoints, object boxes, step transcripts" },
+      { label: "Consent", value: "Written, per contributor, per session" },
+      { label: "Review", value: "3 passes · agreement 0.91" },
+      { label: "Formats", value: "MP4 + JSON, COCO, RLDS" },
+      { label: "Version", value: "1.2 · changelog included" },
+    ],
+  },
+  {
+    slug: "hotel-service-workflows",
+    title: "Hotel service workflows",
+    environment: "Hospitality",
+    location: "Two properties, Dubai",
+    summary:
+      "A speech and interaction program capturing front-desk, concierge, and room-service exchanges in three Arabic dialects and English, structured for an assistant model that must understand real guest requests.",
+    captured: [
+      "Consented multi-party audio at front desk and concierge",
+      "Third-person video of service handovers and room preparation",
+      "Guest request intent and outcome annotation",
+      "Dialect, role, and time-of-day metadata",
+    ],
+    quality: [
+      "Native-speaker transcription for each dialect",
+      "Intent labels validated by hospitality staff, not only annotators",
+      "Guest-identifying content removed at source before structuring",
+    ],
+    facts: [
+      { label: "Audio", value: "90 hours" },
+      { label: "Contributors", value: "18" },
+      { label: "Dialects", value: "3 + English" },
+      { label: "Duration", value: "4 weeks" },
+    ],
+    card: [
+      { label: "Dataset", value: "ARM-HSP-002" },
+      { label: "Modality", value: "Multi-party audio, video, text" },
+      { label: "Labels", value: "Transcripts, speaker roles, intent, outcome" },
+      { label: "Consent", value: "Staff written, guests informed and opt-in" },
+      { label: "Review", value: "2 passes + domain validation" },
+      { label: "Formats", value: "WAV + JSONL, Parquet" },
+      { label: "Version", value: "1.0" },
+    ],
+  },
+  {
+    slug: "home-routines",
+    title: "Home routines",
+    environment: "Homes and daily living",
+    location: "40 households, Cairo and Casablanca",
+    summary:
+      "A consent-first household program capturing everyday tasks and object interactions for an assistive robotics team, with privacy protection designed before the first recording.",
+    captured: [
+      "Egocentric video of cooking, cleaning, and tidying routines",
+      "Object, surface, and room layout annotation",
+      "Task boundaries and interruptions",
+      "Household context: size, layout type, accessibility needs",
+    ],
+    quality: [
+      "Faces and documents blurred at capture, before upload",
+      "Contributors reviewed and could withdraw any session",
+      "Coverage tracked across task types to avoid over-representing easy routines",
+    ],
+    facts: [
+      { label: "Footage", value: "260 hours" },
+      { label: "Households", value: "40" },
+      { label: "Task types", value: "31" },
+      { label: "Duration", value: "8 weeks" },
+    ],
+    card: [
+      { label: "Dataset", value: "ARM-HOM-003" },
+      { label: "Modality", value: "Egocentric video, depth where available" },
+      { label: "Labels", value: "Task segments, object masks, room layout, interruptions" },
+      { label: "Consent", value: "Household written, withdrawal honored" },
+      { label: "Review", value: "3 passes · coverage audit" },
+      { label: "Formats", value: "MP4 + JSON, WebDataset" },
+      { label: "Version", value: "2.0" },
+    ],
+  },
+];
+
+export const howPrograms = {
+  title: "How programs run",
+  lead: "The specifics buyers usually ask for first.",
+  rigs: {
+    title: "Capture rigs and modalities",
+    items: [
+      "Head-mounted egocentric cameras for first-person task data",
+      "Fixed multi-view cameras for spatial and multi-person context",
+      "Wearable and environmental sensors where the task calls for them",
+      "Close-talk and multi-party audio with dialect-aware transcription",
+      "Written context: checklists, forms, screens, and instructions",
+    ],
+  },
+  formats: {
+    title: "Delivery formats",
+    items: ["MP4 and WAV with JSON or JSONL sidecars", "COCO and YOLO for detection and keypoints", "RLDS and LeRobot-compatible episodes for robotics", "WebDataset shards and Parquet tables for training pipelines", "Your schema, if you already have one"],
+  },
+  review: {
+    title: "Quality process",
+    items: [
+      "Acceptance criteria written and signed before capture",
+      "Three review passes: self-check, peer review, program lead audit",
+      "Inter-annotator agreement measured on an overlap set for every label type",
+      "Coverage tracking against the program plan, so gaps are visible early",
+      "Every data point carries origin, reviewer, and acceptance status",
+    ],
+  },
+  pilot: {
+    title: "What a pilot looks like",
+    steps: [
+      { title: "Week 1: design", text: "Scope the task and environments, agree acceptance criteria, brief contributors, confirm consent and governance." },
+      { title: "Weeks 2 to 3: capture and structure", text: "Typically 20 to 60 hours of validated data across two or three sites, structured as it arrives." },
+      { title: "Week 4: review and delivery", text: "Final audit, documentation, and delivery in your format. A written read-out on what worked and what should change at scale." },
+    ],
+  },
+  engagement: {
+    title: "How we work together",
+    items: [
+      { title: "Pilot", text: "Four weeks, fixed scope, fixed price. Enough data to evaluate quality against your own benchmarks." },
+      { title: "Program", text: "Eight to sixteen weeks, priced per hour of validated data or per program, with agreed coverage targets." },
+      { title: "Ongoing", text: "A standing program with a named team, monthly deliveries, and versioned datasets." },
+    ],
+  },
+};
+
+export const security = {
+  title: "Security and data handling",
+  lead: "No certifications are claimed. This is what we do, stated plainly, and what we are working toward.",
+  items: [
+    { title: "Storage", text: "Data is encrypted in transit and at rest. Programs can be pinned to a storage region, including in-region options for the Middle East and Europe." },
+    { title: "Access", text: "Access is limited to the named program team. Contributors see only their own sessions. Client reviewers get read-only access to their program." },
+    { title: "Retention and deletion", text: "Retention periods are agreed per program. Raw material is deleted after delivery unless the agreement says otherwise. Deletion is confirmed in writing." },
+    { title: "Contributor protection", text: "Faces, screens, and documents can be blurred at capture. Contributors can pause or withdraw a session, and withdrawn sessions are removed from every delivery." },
+    { title: "Agreements", text: "Every program runs under a data processing agreement and mutual NDA. Sub-processors are listed in the program documentation." },
+    { title: "In progress", text: "A SOC 2 Type I readiness assessment is under way. We will state the result here when it is done, not before." },
+  ],
+};
+
+export const faq = [
+  { q: "What kinds of data do you collect?", a: "Video (egocentric and fixed), audio and speech, spatial and sensor data, and written context, captured in real environments by trained contributors. Most programs combine two or three." },
+  { q: "Can you work outside the Middle East and Africa?", a: "Yes. Programs are designed around the environments your model needs, wherever they are. The regional network is an advantage, not a limit." },
+  { q: "How do you handle consent and privacy?", a: "Consent is recorded per contributor and per session before capture. Sensitive material is minimized at the source, and contributors can withdraw. See Responsible Data for the full practice." },
+  { q: "What does a pilot cost and how long does it take?", a: "Pilots are four weeks with a fixed scope and fixed price, sized to give you enough validated data to test against your own benchmarks. We quote after a scoping call." },
+  { q: "Which formats do you deliver in?", a: "MP4 and WAV with JSON sidecars, COCO, YOLO, RLDS and LeRobot-compatible episodes, WebDataset, Parquet, or your own schema." },
+  { q: "How is quality measured?", a: "Acceptance criteria are written before capture. Every label type is checked with inter-annotator agreement on an overlap set, and every data point carries its review history." },
+  { q: "Do you provide human evaluation of model outputs?", a: "Yes. Expert review, preference and ranking data, and task-specific judgments from people who do the work in the environments your model targets." },
+  { q: "Who owns the data?", a: "You do, under the program agreement. Contributors are credited in the program record and their consent terms travel with the data." },
+];
+
+export const workPage = {
+  hero: { eyebrow: "Work", title: "Programs, shown the way we deliver them.", lead: "Three example programs across manufacturing, hospitality, and homes. Each shows what was captured, how quality was checked, and the data card that ships with the delivery." },
+};
+
+export const accessibilityPage = {
+  updated: "September 2026",
+  intro: "Ariamena wants everyone to be able to use this site. This statement describes what has been done and how to reach us if something does not work for you.",
+  items: [
+    "Semantic HTML with one main landmark, ordered headings, and labeled controls",
+    "Full keyboard operation, including the menu, the data toggle, and the environment selector",
+    "Visible focus indicators on every interactive element",
+    "Text contrast of at least 4.5:1 for body text and 3:1 for large text",
+    "Respect for the reduced-motion preference: animations stop and final states are shown",
+    "Touch targets of at least 44 pixels",
+    "No content that flashes",
+  ],
+};
+
+export const homeExtra = {
+  reach: { number: "04", eyebrow: "Reach", title: "Global programs. Deep roots in the Middle East and Africa.", body: company.reachBody },
+  proof: {
+    number: "06",
+    eyebrow: "Work",
+    title: "A program, shown the way it ships.",
+    body: "Every delivery arrives with its data card: what was captured, under what consent, how it was reviewed, and in which formats. Here is one program's card and a frame from its annotated footage.",
+  },
+  faq: { eyebrow: "Questions", title: "What buyers ask first." },
+  stream: [
+    "frame 0412 · t 00:14.20",
+    "subject person_01 · conf 0.98",
+    "kp 07 wrist_r · 206, 96",
+    "kp 05 elbow_r · 166, 104",
+    "action reach → grasp",
+    "object tray · bbox 256 292 126 54",
+    "station B · shift 2",
+    "kp 13 ankle_r · 132, 308",
+    "seq 04 / 12 · accepted",
+    "reviewer 2 of 3 · agree",
+    "consent session_0412 · yes",
+    "export coco · rlds · v1.2",
+  ],
+};
+
+export const contactNext = {
+  title: "What happens next",
+  steps: [
+    { title: "Reply within two working days", text: "A person reads your message and replies with questions about the task, the environment, and the model." },
+    { title: "Scoping call", text: "Thirty minutes to define what the model must understand and what a useful pilot would prove." },
+    { title: "Pilot proposal within a week", text: "Scope, acceptance criteria, consent plan, timeline, and a fixed price." },
+  ],
 };

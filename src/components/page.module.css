@@ -342,3 +342,207 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Added: facts, founders, programs, steps ---------- */
+.factsRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.fact {
+  background: var(--warm);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.factV {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.factL {
+  color: var(--ink-3);
+}
+
+.founders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.founder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founder h3 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.role {
+  color: var(--sienna);
+  margin-bottom: 14px;
+}
+
+.bio {
+  color: var(--ink-2);
+  font-size: 15.5px;
+  margin-bottom: 14px;
+}
+
+.focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.focus li {
+  font-size: 12.5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--ink-2);
+}
+
+.beliefs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 40px;
+}
+
+.belief h3 {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 10px 0 6px;
+}
+
+.belief p {
+  color: var(--ink-2);
+  font-size: 15.5px;
+}
+
+.program {
+  padding: clamp(40px, 5vw, 72px) 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+
+.programHead {
+  max-width: 62ch;
+  margin-bottom: 32px;
+}
+
+.programMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+}
+
+.programEnv {
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.programHead h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+
+.programFacts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.programGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+.subhead {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.tStageH3 {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.sideStack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.steps b {
+  display: block;
+  font-weight: 500;
+  font-size: 15.5px;
+  margin-bottom: 4px;
+}
+
+.steps p {
+  color: var(--ink-2);
+  font-size: 14.5px;
+}
+
+@media (max-width: 900px) {
+  .factsRow,
+  .programFacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .founders {
+    grid-template-columns: 1fr;
+  }
+  .beliefs {
+    grid-template-columns: 1fr;
+  }
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+}

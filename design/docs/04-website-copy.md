@@ -4,7 +4,7 @@ Positioning: **The human data layer that teaches AI how the real world works.**
 
 ## Navigation
 
-Capabilities · Industries · Method · Responsible Data · About · [Start a conversation]
+Capabilities · Industries · Work · Method · Responsible Data · About · [Start a conversation]
 
 ## Home
 
@@ -78,7 +78,7 @@ The same model can fail on a warehouse floor and succeed in a lab. Context is th
 
 - **Homes and daily living.** Represent routines, objects, and spaces in the home with the care that private environments require.
 
-### 04 — Method
+### 05 — Method
 
 H2: From the field to the model.
 
@@ -96,7 +96,7 @@ Five stages. Each one is a layer of the same system, and each locks into the one
 
 Layers: Human experience → Observation → Context → Structure → Intelligence
 
-### 05 — Responsibility
+### 07 — Responsibility
 
 H2: Human data requires human responsibility.
 
@@ -114,7 +114,7 @@ AI should not lose the people behind the data. Ariamena designs responsible data
 
 - **Respect for people and places.** The people and environments behind the data are partners in the work, not raw material.
 
-### 06 — Outcome
+### 08 — Outcome
 
 H2: AI that understands more. Because it starts with more.
 
@@ -136,7 +136,7 @@ Tell us what your AI needs to understand. We'll help shape the data program that
 
 ### Footer
 
-Capabilities · Industries · Method · Responsible Data · About · Contact · LinkedIn · Privacy · Terms
+Capabilities · Industries · Work · Method · Responsible Data · About · Contact · LinkedIn · Privacy · Terms · Accessibility
 
 ## Capabilities
 
@@ -384,7 +384,7 @@ Ariamena exists because useful AI cannot be trained on abstraction alone. It nee
 
 - **Quiet claims, clear evidence.** We would rather show a method than announce a number.
 
-**Work with us.** Ariamena is early-stage and growing. We are interested in hearing from people who know real environments from the inside, from operations leaders who want AI that understands their work, and from research and engineering partners who want a data partner rather than a vendor.
+**Work with us.** Ariamena was founded in 2025 by three people who had each watched AI fail in environments they knew well. We are building a team around that experience. We want to hear from people who know real environments from the inside, from operations leaders who want AI that understands their work, and from research and engineering partners who want a data partner rather than a vendor.
 
 ## Contact
 

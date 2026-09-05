@@ -62,3 +62,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+.meta {
+  color: var(--mist-2);
+  margin-top: 18px;
+}
+
+.textBtn {
+  color: var(--mist);
+  font-size: 15px;
+  transition: color 0.2s var(--ease-ui);
+  text-align: left;
+}
+
+.textBtn:hover {
+  color: var(--paper);
+}

@@ -1,0 +1,10 @@
+.wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.wrap svg {
+  display: block;
+}

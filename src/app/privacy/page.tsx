@@ -18,9 +18,11 @@ export default function Page() {
           <p>Correspondence is kept for as long as needed to respond and to follow up on a potential program, and is deleted when it is no longer needed for that purpose.</p>
           <h2>Your choices</h2>
           <p>You can ask what information we hold about you, ask for it to be corrected, or ask for it to be deleted, by writing to {site.email}.</p>
+          <h2>Cookies and analytics</h2>
+          <p>This site sets no tracking cookies. If you make a choice in the privacy notice shown on your first visit, that choice is stored in your browser so we do not ask again. Anonymous, cookieless analytics run only if you turn them on, and can be turned off at any time from the Cookie settings link in the footer.</p>
           <h2>Contact</h2>
           <p>Questions about this notice can be sent to {site.email}.</p>
-          <p className={p.note}>This notice will be extended with legal entity details, governing law, and any processors used once those are confirmed.</p>
+          <p className={p.note}>Last updated September 2026. This notice will be extended with legal entity details, governing law, and any processors used once those are confirmed.</p>
         </div>
       </section>
     </>

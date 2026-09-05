@@ -1,0 +1,35 @@
+.badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 95;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(28, 26, 23, 0.86);
+  color: #f4efe7;
+  font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d0864f;
+}
+
+@media (max-width: 640px) {
+  .badge {
+    bottom: 12px;
+    right: 12px;
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}

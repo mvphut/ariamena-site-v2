@@ -4,6 +4,8 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ThemeObserver } from "@/components/ThemeObserver";
 import { Grain } from "@/components/Grain";
+import { CookieConsent } from "@/components/CookieConsent";
+import { PreviewBadge } from "@/components/PreviewBadge";
 import { site } from "@/content/site";
 import "./globals.css";
 import "@/components/figure/figure.css";
@@ -12,12 +14,23 @@ const sans = Instrument_Sans({ subsets: ["latin"], weight: ["400", "500", "600"]
 const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["italic"], variable: "--font-serif", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: { default: `${site.name} — ${site.tagline}`, template: `%s — ${site.name}` },
   description: site.description,
-  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/icon.svg` },
-  openGraph: { title: site.name, description: site.tagline, url: `https://${site.domain}`, siteName: site.name, type: "website" },
+  icons: { icon: `${bp}/icon.svg` },
+  openGraph: {
+    title: site.name,
+    description: site.tagline,
+    url: `https://${site.domain}`,
+    siteName: site.name,
+    type: "website",
+    images: [{ url: `${bp}/og.png`, width: 1200, height: 630, alt: "Ariamena. AI learns from the real world." }],
+  },
+  twitter: { card: "summary_large_image", title: site.name, description: site.tagline, images: [`${bp}/og.png`] },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -26,10 +39,22 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: `https://${site.domain}`,
+  logo: `https://${site.domain}/icon.svg`,
+  description: site.tagline,
+  email: site.email,
+  sameAs: [site.linkedin],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}.words .w>span{transform:none!important}`}</style>
         </noscript>
@@ -41,6 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <Grain />
+        <PreviewBadge />
+        <CookieConsent />
       </body>
     </html>
   );

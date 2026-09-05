@@ -19,7 +19,7 @@ export default function Page() {
           <p>The site is provided as is. We aim to keep it accurate and available, but we do not guarantee that it will be free of errors or interruptions.</p>
           <h2>Contact</h2>
           <p>Questions about these terms can be sent to {site.email}.</p>
-          <p className={p.note}>Legal entity details, governing law, and jurisdiction will be added once confirmed.</p>
+          <p className={p.note}>Last updated September 2026. Legal entity details, governing law, and jurisdiction will be added once confirmed.</p>
         </div>
       </section>
     </>
