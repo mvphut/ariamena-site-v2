@@ -1508,3 +1508,67 @@
     transform: translateX(22px);
   }
 }
+
+/* ---------- RTL hero mirroring ---------- */
+[dir="rtl"] .heroFog {
+  right: auto;
+  left: 0;
+  background: linear-gradient(270deg, rgba(27, 29, 34, 0) 0%, rgba(27, 29, 34, 0.92) 42%, var(--black) 100%);
+}
+
+[dir="rtl"] .sceneSvg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .stream {
+  right: auto;
+  left: -4%;
+  align-items: flex-end;
+}
+
+[dir="rtl"] .tagScene {
+  left: auto;
+  right: 6%;
+}
+
+[dir="rtl"] .tagPerson {
+  left: auto;
+  right: 8%;
+}
+
+[dir="rtl"] .tagSeq {
+  right: auto;
+  left: 4%;
+}
+
+[dir="rtl"] .phaseTag {
+  left: auto;
+  right: 6%;
+}
+
+[dir="rtl"] .scrollHint {
+  left: auto;
+  right: var(--pad);
+}
+
+[dir="rtl"] .stateTag {
+  left: auto;
+  right: 16px;
+}
+
+@media (max-width: 900px) {
+  [dir="rtl"] .heroFog {
+    display: none;
+  }
+  [dir="rtl"] .sceneSvg {
+    transform: scaleX(-1) translateX(-14%);
+  }
+  [dir="rtl"] .stream {
+    left: 2%;
+    right: auto;
+  }
+  [dir="rtl"] .tagScene {
+    right: 4%;
+    left: auto;
+  }
+}

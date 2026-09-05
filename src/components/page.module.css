@@ -84,14 +84,14 @@
 .points li {
   font-size: 14.5px;
   color: var(--ink-2);
-  padding-left: 16px;
+  padding-inline-start: 16px;
   position: relative;
 }
 
 .points li::before {
   content: "";
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0.65em;
   width: 6px;
   height: 1px;
@@ -298,7 +298,7 @@
 }
 
 .prose ul {
-  padding-left: 18px;
+  padding-inline-start: 18px;
   list-style: disc;
   display: flex;
   flex-direction: column;
@@ -306,8 +306,9 @@
 }
 
 .note {
-  border-left: 2px solid var(--sienna);
+  border-inline-start: 2px solid var(--sienna);
   padding: 6px 0 6px 18px;
+  padding-inline: 18px 0;
   color: var(--ink-2);
   font-size: 15px;
 }

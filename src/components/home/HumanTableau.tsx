@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
 import { Hand } from "@/components/figure/Hand";
-import { home } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { subscribeScroll, viewProgress } from "@/lib/scroll";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import s from "./home.module.css";
@@ -98,7 +98,8 @@ const layout = [
   { id: "yard", depth: 2, cls: "f6" },
 ];
 
-export function HumanTableau() {
+export function HumanTableau({ c = en }: { c?: Content }) {
+  const { home } = c;
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 
@@ -122,7 +123,7 @@ export function HumanTableau() {
   return (
     <section className={`section theme-light ${s.human}`} data-theme-section="light" aria-labelledby="human-title">
       <div className="container">
-        <SectionHeader id="human-title" number={home.human.number} eyebrow={home.human.eyebrow} title={home.human.title} accent="people." body={home.human.body} />
+        <SectionHeader id="human-title" number={home.human.number} eyebrow={home.human.eyebrow} title={home.human.title} accent={home.human.accent} body={home.human.body} />
       </div>
       <div className={`container ${s.tableau}`} ref={ref}>
         {layout.map((f, i) => {

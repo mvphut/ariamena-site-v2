@@ -4,16 +4,17 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
-import { home } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { useInView } from "@/lib/useInView";
 import s from "./home.module.css";
 
-export function Outcome() {
+export function Outcome({ c = en }: { c?: Content }) {
+  const { home, site } = c;
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
   return (
     <section className={`section theme-light ${s.outcome}`} data-theme-section="light" aria-labelledby="outcome-title">
       <div className="container">
-        <SectionHeader id="outcome-title" number={home.outcome.number} eyebrow={home.outcome.eyebrow} title={home.outcome.title} accent="starts with more." body={home.outcome.body} />
+        <SectionHeader id="outcome-title" number={home.outcome.number} eyebrow={home.outcome.eyebrow} title={home.outcome.title} accent={home.outcome.accent} body={home.outcome.body} />
       </div>
       <div className={`container ${s.outGrid}`}>
         <div className={`${s.outScene} draw ${inView ? "is-in" : ""}`} ref={ref}>
@@ -32,7 +33,7 @@ export function Outcome() {
             </g>
           </svg>
           <span className={`${s.tag} ${s.tagWarm}`} style={{ left: "6%", top: "6%" }}>
-            scene · assembly line · understood
+            {home.hero.labels.scene} · {site.ui.understood}
           </span>
         </div>
         <ul className={s.outNotes}>

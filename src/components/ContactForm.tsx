@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { contactPage, industries, site } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import styles from "./ContactForm.module.css";
 
 type Status = "idle" | "sending" | "sent" | "fallback" | "error";
 
-export function ContactForm() {
+export function ContactForm({ c = en }: { c?: Content }) {
+  const { contactPage, industries, site } = c;
   const [status, setStatus] = useState<Status>("idle");
   const [envs, setEnvs] = useState<string[]>([]);
   const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
@@ -75,7 +76,7 @@ export function ContactForm() {
       </label>
       <div className={styles.actions}>
         <button type="submit" className={styles.submit} disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : contactPage.form.submit}
+          {status === "sending" ? "…" : contactPage.form.submit}
         </button>
         {status === "fallback" ? (
           <p className={styles.status} role="status">

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
-import { home, methodStages, site } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { pinProgress, subscribeScroll } from "@/lib/scroll";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { useMediaQuery } from "@/lib/useMediaQuery";
@@ -12,7 +12,8 @@ import s from "./home.module.css";
 const layerFills = ["var(--clay)", "rgba(244,239,231,0.55)", "rgba(165,172,186,0.35)", "rgba(43,91,255,0.55)", "rgba(138,108,255,0.7)"];
 const layerStrokes = ["var(--clay)", "rgba(244,239,231,0.9)", "var(--mist)", "var(--cobalt)", "var(--uv)"];
 
-export function MethodStack() {
+export function MethodStack({ c = en }: { c?: Content }) {
+  const { home, methodStages, site } = c;
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scrollCount, setCount] = useState(0);
   const reduced = useReducedMotion();
@@ -84,7 +85,7 @@ export function MethodStack() {
             </div>
           </div>
           <div className={`container ${s.methodFoot}`}>
-            <Button href="/method" variant="link">
+            <Button href={`${site.base}/method`} variant="link">
               {site.cta.secondary}
             </Button>
           </div>

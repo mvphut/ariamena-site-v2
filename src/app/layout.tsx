@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { ThemeObserver } from "@/components/ThemeObserver";
 import { Grain } from "@/components/Grain";
 import { CookieConsent } from "@/components/CookieConsent";
 import { PreviewBadge } from "@/components/PreviewBadge";
 import { site } from "@/content/site";
+
 import "./globals.css";
 import "@/components/figure/figure.css";
 
@@ -38,6 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: site.name, description: site.tagline, images: [`${bp}/og.png`] },
   robots: { index: true, follow: true },
+  alternates: { languages: { en: "/", ar: "/ar" } },
 };
 
 export const viewport: Viewport = {
@@ -65,13 +65,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}.words .w>span{transform:none!important}`}</style>
         </noscript>
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
         <ThemeObserver />
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
+        {children}
         <Grain />
         <PreviewBadge />
         <CookieConsent />

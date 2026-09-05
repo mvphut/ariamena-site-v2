@@ -6,11 +6,12 @@ import { Button } from "@/components/Button";
 import { DataCard } from "@/components/DataCard";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
-import { homeExtra, programs } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { useInView } from "@/lib/useInView";
 import s from "./home.module.css";
 
-export function Proof() {
+export function Proof({ c = en }: { c?: Content }) {
+  const { homeExtra, programs, site } = c;
   const pr = programs[0];
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
   return (
@@ -53,10 +54,10 @@ export function Proof() {
           <p className={`label ${s.proofTitle}`}>
             {pr.title} · {pr.environment}
           </p>
-          <DataCard rows={pr.card} />
+          <DataCard rows={pr.card} title={site.ui.dataCard} ships={site.ui.shipsWith} />
           <div style={{ marginTop: 24 }}>
-            <Button href="/work" variant="link">
-              See three programs in full
+            <Button href={`${site.base}/work`} variant="link">
+              {site.ui.seePrograms}
             </Button>
           </div>
         </Reveal>

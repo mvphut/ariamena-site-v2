@@ -1,4 +1,5 @@
 .logo {
+  direction: ltr;
   display: inline-flex;
   align-items: center;
   gap: 9px;

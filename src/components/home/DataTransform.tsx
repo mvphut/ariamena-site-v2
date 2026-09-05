@@ -5,14 +5,15 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
-import { home } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import s from "./home.module.css";
 
 type StateId = "raw" | "layer" | "structure";
 
-export function DataTransform() {
+export function DataTransform({ c = en }: { c?: Content }) {
+  const { home } = c;
   const [state, setState] = useState<StateId>("raw");
   const [interacted, setInteracted] = useState(false);
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
@@ -24,7 +25,7 @@ export function DataTransform() {
     if (!inView || interacted || reduced) return;
     const id = setInterval(() => setState((cur) => home.data.states[(home.data.states.findIndex((x) => x.id === cur) + 1) % 3].id as StateId), 3200);
     return () => clearInterval(id);
-  }, [inView, interacted, reduced]);
+  }, [inView, interacted, reduced, home.data.states]);
 
   const pick = (id: StateId) => {
     setInteracted(true);
@@ -110,7 +111,7 @@ export function DataTransform() {
         </div>
 
         <div className={s.dataControls}>
-          <div className={s.segmented} role="group" aria-label="Transformation state" onKeyDown={onKey}>
+          <div className={s.segmented} role="group" aria-label={c.site.ui.stateLabel} onKeyDown={onKey}>
             {home.data.states.map((st) => (
               <button
                 key={st.id}

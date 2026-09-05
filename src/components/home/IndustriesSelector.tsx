@@ -6,10 +6,11 @@ import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { SectionHeader } from "@/components/SectionHeader";
 import { EnvGlyph } from "@/components/EnvGlyph";
-import { home, industries } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import s from "./home.module.css";
 
-export function IndustriesSelector() {
+export function IndustriesSelector({ c = en }: { c?: Content }) {
+  const { home, industries, site } = c;
   const [active, setActive] = useState(industries[0].slug);
   const [interacted, setInteracted] = useState(false);
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
@@ -21,7 +22,7 @@ export function IndustriesSelector() {
     if (!inView || interacted || reduced) return;
     const id = setInterval(() => setActive((cur) => industries[(industries.findIndex((i) => i.slug === cur) + 1) % industries.length].slug), 3800);
     return () => clearInterval(id);
-  }, [inView, interacted, reduced]);
+  }, [inView, interacted, reduced, industries]);
 
   const pick = (slug: string) => {
     setInteracted(true);
@@ -31,11 +32,11 @@ export function IndustriesSelector() {
   return (
     <section className={`section theme-dark ${s.industries}`} data-theme-section="dark" aria-labelledby="industries-title">
       <div className="container">
-        <SectionHeader id="industries-title" number={home.industries.number} eyebrow={home.industries.eyebrow} title={home.industries.title} body={home.industries.body} />
+        <SectionHeader id="industries-title" number={home.industries.number} eyebrow={home.industries.eyebrow} title={home.industries.title} accent={home.industries.accent} body={home.industries.body} />
       </div>
       <div className={`container ${s.indGrid}`} ref={ref}>
         <div className={s.indListWrap}>
-          <ul className={s.indList} aria-label="Environments">
+          <ul className={s.indList} aria-label={site.ui.envsLabel}>
             {industries.map((ind, i) => (
               <li key={ind.slug}>
                 <button
@@ -58,16 +59,16 @@ export function IndustriesSelector() {
             <div className={s.indGlyph}>
               <EnvGlyph slug={current.slug} size={88} />
             </div>
-            <p className={`label ${s.indCardLabel}`}>Environment · {current.name}</p>
+            <p className={`label ${s.indCardLabel}`}>{site.ui.envLabel} · {current.name}</p>
             <h3 className={`h3 ${s.indStatement}`}>{current.statement}</h3>
-            <p className={`label ${s.indCapLabel}`}>A program might capture</p>
+            <p className={`label ${s.indCapLabel}`}>{site.ui.capLabel}</p>
             <ul className={s.indCaps}>
               {current.captures.map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>
-            <Link href={`/industries#${current.slug}`} className={s.indMore}>
-              More on {current.name.toLowerCase()}
+            <Link href={`${site.base}/industries#${current.slug}`} className={s.indMore}>
+              {site.ui.moreOn} {site.locale === "en" ? current.name.toLowerCase() : current.name}
               <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

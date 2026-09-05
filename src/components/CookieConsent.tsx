@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { en } from "@/content/site";
+import { ar } from "@/content/ar";
 import styles from "./CookieConsent.module.css";
 
 type Consent = { analytics: boolean; ts: number };
@@ -28,6 +31,10 @@ function loadAnalytics() {
 }
 
 export function CookieConsent() {
+  const pathname = usePathname();
+  const isAr = !!pathname && /^\/ar(\/|$)/.test(pathname);
+  const t = (isAr ? ar : en).site.ui.cookie;
+  const base = isAr ? "/ar" : "";
   const [visible, setVisible] = useState(false);
   const [prefs, setPrefs] = useState(false);
   const [analytics, setAnalytics] = useState(false);
@@ -66,27 +73,27 @@ export function CookieConsent() {
     <div className={styles.wrap} role="dialog" aria-labelledby="consent-title" aria-describedby="consent-desc">
       <div className={styles.card}>
         <p id="consent-title" className={`label ${styles.title}`}>
-          Privacy on this site
+          {t.title}
         </p>
         <p id="consent-desc" className={styles.text}>
-          This site sets no tracking cookies. Essential storage only remembers this choice. Anonymous, cookieless analytics run only if you turn them on.{" "}
-          <Link href="/privacy" className={styles.link}>
-            Privacy notice
+          {t.text}{" "}
+          <Link href={`${base}/privacy`} className={styles.link}>
+            {t.link}
           </Link>
         </p>
         {prefs ? (
           <div className={styles.prefs}>
             <label className={styles.pref}>
               <span>
-                <b>Essential</b>
-                <small>Remembers your choice. Always on.</small>
+                <b>{t.essential}</b>
+                <small>{t.essentialNote}</small>
               </span>
               <input type="checkbox" checked disabled aria-label="Essential storage, always on" />
             </label>
             <label className={styles.pref}>
               <span>
-                <b>Analytics</b>
-                <small>Anonymous page counts, no cookies, no personal data.</small>
+                <b>{t.analytics}</b>
+                <small>{t.analyticsNote}</small>
               </span>
               <input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} />
             </label>
@@ -95,18 +102,18 @@ export function CookieConsent() {
         <div className={styles.actions}>
           {prefs ? (
             <button type="button" className={styles.primary} onClick={() => save(analytics)}>
-              Save preferences
+              {t.save}
             </button>
           ) : (
             <>
               <button type="button" className={styles.primary} onClick={() => save(false)}>
-                Essential only
+                {t.onlyEssential}
               </button>
               <button type="button" className={styles.secondary} onClick={() => save(true)}>
-                Allow analytics
+                {t.allow}
               </button>
               <button type="button" className={styles.textBtn} onClick={() => setPrefs(true)}>
-                Preferences
+                {t.prefs}
               </button>
             </>
           )}
@@ -116,10 +123,10 @@ export function CookieConsent() {
   );
 }
 
-export function ConsentSettingsButton({ className = "" }: { className?: string }) {
+export function ConsentSettingsButton({ className = "", label = "Cookie settings" }: { className?: string; label?: string }) {
   return (
     <button type="button" className={className} onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}>
-      Cookie settings
+      {label}
     </button>
   );
 }

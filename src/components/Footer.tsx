@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { company, site } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { LogoMark } from "./Logo";
 import { ConsentSettingsButton } from "./CookieConsent";
 import styles from "./Footer.module.css";
 
-export function Footer() {
+export function Footer({ c = en }: { c?: Content }) {
+  const { company, site } = c;
   return (
     <footer className={`${styles.footer} theme-dark`} data-theme-section="dark">
       <div className={`container ${styles.grid}`}>
@@ -39,14 +40,14 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <ConsentSettingsButton className={styles.textBtn} />
+              <ConsentSettingsButton className={styles.textBtn} label={site.ui.cookie.settings} />
             </li>
           </ul>
         </nav>
       </div>
       <div className={`container ${styles.bottom}`}>
-        <span className="label">© {new Date().getFullYear()} Ariamena</span>
-        <span className="label">Human data · Real environments · Responsible programs</span>
+        <span className="label">© {new Date().getFullYear()} {site.name}</span>
+        <span className="label">{site.ui.footerLine}</span>
       </div>
     </footer>
   );

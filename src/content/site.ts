@@ -1,6 +1,8 @@
 export const site = {
   // PREVIEW FLAG: while true, a small "Preview: example content" badge is shown. Set to false once real data replaces the placeholders below.
   preview: true,
+  locale: "en",
+  base: "",
   name: "Ariamena",
   domain: "ariamena.com",
   tagline: "The human data layer that teaches AI how the real world works.",
@@ -17,6 +19,70 @@ export const site = {
     { label: "About", href: "/about" },
   ],
   cta: { primary: "Start a conversation", secondary: "Explore the process" },
+  ui: {
+    skip: "Skip to content",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    langSwitch: "العربية",
+    langHref: "/ar",
+    preview: "Preview · example content",
+    footerLine: "Human data · Real environments · Responsible programs",
+    seeMethod: "See the method",
+    seePrograms: "See three programs in full",
+    moreOn: "More on",
+    capLabel: "A program might capture",
+    envLabel: "Environment",
+    stateLabel: "Transformation state",
+    envsLabel: "Environments",
+    respLink: "How responsibility works in practice",
+    workNote: "Programs are described at the level of detail we share publicly. Client names, model details, and full data cards are shared under NDA.",
+    indNote: "These are environments Ariamena is built to scope and run programs in. They are not claims of active sites or existing clients.",
+    workCta: { title: "Run a pilot on the environment your model needs.", accent: "your model needs.", body: "Four weeks, fixed scope, fixed price, and enough validated data to test against your own benchmarks." },
+    dataCard: "Data card",
+    shipsWith: "ships with every delivery",
+    program: "Program",
+    captured: "What was captured",
+    quality: "How quality was checked",
+    modalities: "Modalities",
+    modalitiesBody: "Programs are designed around the signals the model needs, not around a single capture tool. Most programs combine several.",
+    fits: "How it fits together",
+    fitsBody: "Every capability above is a stage of one method. Program design sets the acceptance criteria; capture, structuring, and validation answer to them; delivery documents how they were met.",
+    founders: "Founders",
+    foundersBody: "Three people who each watched AI fail in an environment they knew well, and decided the data was the problem.",
+    founded: "Founded",
+    bases: "Bases",
+    network: "Contributor network",
+    coverage: "Active coverage",
+    countries: "countries",
+    languages: "Languages and dialects",
+    believe: "What we believe",
+    believeBody: "Four commitments that shape every program.",
+    introduce: "Introduce yourself",
+    sixPrinciples: "Six principles",
+    sixBody: "Each principle is an operating rule, not a value statement. They shape how programs are scoped, staffed, run, reviewed, and delivered.",
+    inPractice: "In practice",
+    inPracticeBody: "What responsibility looks like at each point in a program.",
+    pilotBody: "Four weeks from first call to delivered data. Sized to prove quality against your own benchmarks before anyone commits to scale.",
+    engagementBody: "Three shapes of engagement. Every one starts with written acceptance criteria and ends with a documented delivery.",
+    repliesLine: "Replies come from a person, not a queue.",
+    cookie: {
+      title: "Privacy on this site",
+      text: "This site sets no tracking cookies. Essential storage only remembers this choice. Anonymous, cookieless analytics run only if you turn them on.",
+      link: "Privacy notice",
+      essential: "Essential",
+      essentialNote: "Remembers your choice. Always on.",
+      analytics: "Analytics",
+      analyticsNote: "Anonymous page counts, no cookies, no personal data.",
+      save: "Save preferences",
+      onlyEssential: "Essential only",
+      allow: "Allow analytics",
+      prefs: "Preferences",
+      settings: "Cookie settings",
+    },
+    understood: "understood",
+    scroll: "Scroll",
+    phases: { human: "01 · human activity", observe: "02 · observed · 14 keypoints", record: "03 · recorded · frame 0412", resolve: "04 · structured for training" },
+  },
   footerLinks: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Industries", href: "/industries" },
@@ -37,6 +103,7 @@ export const home = {
   hero: {
     eyebrow: "Human data infrastructure for real-world AI",
     title: ["AI learns from the", "real world."],
+    accent: "real world.",
     lead: site.description,
     labels: { scene: "scene · assembly line", person: "person · reaching", seq: "seq 04 / 12" },
   },
@@ -44,6 +111,7 @@ export const home = {
     number: "01",
     eyebrow: "Human",
     title: "Every intelligent system begins with people.",
+    accent: "people.",
     body:
       "The nuance of real work lives in hands, timing, judgment, and space. A technician hears a machine change pitch. A teacher reads a room. A nurse adjusts before the chart says to. None of that exists in a spreadsheet. Ariamena works with people in the places where this knowledge is used, so it can be captured with its context intact.",
     fragments: [
@@ -78,6 +146,7 @@ export const home = {
     number: "03",
     eyebrow: "Environments",
     title: "Built for the environments AI must understand.",
+    accent: "must understand.",
     body:
       "The same model can fail on a warehouse floor and succeed in a lab. Context is the difference. Ariamena designs programs around the specific settings your system will work in.",
   },
@@ -92,6 +161,7 @@ export const home = {
     number: "07",
     eyebrow: "Responsibility",
     title: "Human data requires human responsibility.",
+    accent: "human responsibility.",
     body:
       "AI should not lose the people behind the data. Ariamena designs responsible data programs around context, care, quality, and clear operational standards.",
   },
@@ -99,6 +169,7 @@ export const home = {
     number: "08",
     eyebrow: "Outcome",
     title: "AI that understands more. Because it starts with more.",
+    accent: "starts with more.",
     body:
       "When AI learns from genuine context, it can make better sense of the work, spaces, decisions, and people it is designed to support.",
     notes: [
@@ -109,6 +180,7 @@ export const home = {
   },
   cta: {
     title: "Build the human data layer behind your next intelligent system.",
+    accent: "human data layer",
     body: "Tell us what your AI needs to understand. We'll help shape the data program that gets it there.",
   },
 };
@@ -154,7 +226,7 @@ export const principles = [
 ];
 
 export const capabilities = {
-  hero: { eyebrow: "Capabilities", title: "One accountable partner, from program design to model-ready data.", lead: "Ariamena designs, runs, and delivers human data programs in real environments. The work is one process, not a chain of vendors." },
+  hero: { eyebrow: "Capabilities", title: "One accountable partner, from program design to model-ready data.", accent: "model-ready data.", lead: "Ariamena designs, runs, and delivers human data programs in real environments. The work is one process, not a chain of vendors." },
   items: [
     { title: "Data program design", text: "Scoping, coverage planning, acceptance criteria, and the consent and governance framework the program will run under.", points: ["Task and environment scoping", "Coverage and variation planning", "Acceptance criteria and data specification"] },
     { title: "Real-world data capture", text: "Egocentric and third-person video, audio and speech, spatial and sensor data, and written context, recorded where the activity happens.", points: ["Trained contributors in real settings", "Multi-modal capture protocols", "Consent and briefing built into the workflow"] },
@@ -167,13 +239,13 @@ export const capabilities = {
 };
 
 export const methodPage = {
-  hero: { eyebrow: "Method", title: "From the field to the model.", lead: "A data program is a system. Each stage is a layer that locks into the one before it, so the result can be trusted from the first recording to the final delivery." },
+  hero: { eyebrow: "Method", title: "From the field to the model.", accent: "the model.", lead: "A data program is a system. Each stage is a layer that locks into the one before it, so the result can be trusted from the first recording to the final delivery." },
   receive: { title: "What you receive", items: ["A written program design with scope, coverage, and acceptance criteria", "Documented consent and governance for the program", "Structured, validated data in your schema", "Provenance and review records for every delivery", "A named team that stays with the program"] },
   need: { title: "What we need from you", items: ["A clear statement of what the model must understand", "The environments and tasks it will work in", "Your data formats, schemas, and any existing guidelines", "A point of contact for decisions on scope and acceptance"] },
 };
 
 export const responsiblePage = {
-  hero: { eyebrow: "Responsible data", title: "Human data requires human responsibility.", lead: "Ariamena describes its practices plainly. We do not claim certifications we have not earned or make promises the work cannot keep. What follows is how programs are designed and run." },
+  hero: { eyebrow: "Responsible data", title: "Human data requires human responsibility.", accent: "human responsibility.", lead: "Ariamena describes its practices plainly. We do not claim certifications we have not earned or make promises the work cannot keep. What follows is how programs are designed and run." },
   practice: [
     { title: "Before capture", text: "Scope is agreed and written down: what is captured, where, from whom, for what permitted use. Contributors are briefed and consent is recorded before any recording begins." },
     { title: "During capture", text: "Sensitive material is minimized at the source. Contributors can pause or withdraw. Program owners are reachable throughout." },
@@ -183,7 +255,7 @@ export const responsiblePage = {
 };
 
 export const aboutPage = {
-  hero: { eyebrow: "About", title: "A company built on the idea that AI should understand the world it works in.", lead: "Ariamena exists because useful AI cannot be trained on abstraction alone. It needs real human context, real environments, responsible collection, and rigorous structure." },
+  hero: { eyebrow: "About", title: "A company built on the idea that AI should understand the world it works in.", accent: "works in.", lead: "Ariamena exists because useful AI cannot be trained on abstraction alone. It needs real human context, real environments, responsible collection, and rigorous structure." },
   name: { title: "The name", text: "Ariamena joins two ideas. Aria: a single human voice, given form and heard clearly. Mena: the people and places the company comes from. Together they describe the work: human knowledge, made legible for intelligent systems, without losing the people behind it." },
   beliefs: [
     { title: "Context is the product", text: "A recording without its setting, sequence, and intent is not yet useful. We capture the context with the signal." },
@@ -195,7 +267,7 @@ export const aboutPage = {
 };
 
 export const contactPage = {
-  hero: { eyebrow: "Contact", title: "Start a conversation.", lead: "Tell us what your AI needs to understand. We will reply with questions, and then with a proposal for a data program." },
+  hero: { eyebrow: "Contact", title: "Start a conversation.", accent: "conversation.", lead: "Tell us what your AI needs to understand. We will reply with questions, and then with a proposal for a data program." },
   form: {
     name: "Your name",
     email: "Work email",
@@ -441,7 +513,7 @@ export const faq = [
 ];
 
 export const workPage = {
-  hero: { eyebrow: "Work", title: "Programs, shown the way we deliver them.", lead: "Three example programs across manufacturing, hospitality, and homes. Each shows what was captured, how quality was checked, and the data card that ships with the delivery." },
+  hero: { eyebrow: "Work", title: "Programs, shown the way we deliver them.", accent: "deliver them.", lead: "Three example programs across manufacturing, hospitality, and homes. Each shows what was captured, how quality was checked, and the data card that ships with the delivery." },
 };
 
 export const accessibilityPage = {
@@ -491,3 +563,6 @@ export const contactNext = {
     { title: "Pilot proposal within a week", text: "Scope, acceptance criteria, consent plan, timeline, and a fixed price." },
   ],
 };
+
+export const en = { site, home, industries, methodStages, principles, capabilities, methodPage, responsiblePage, aboutPage, contactPage, company, founders, programs, howPrograms, security, faq, workPage, accessibilityPage, homeExtra, contactNext };
+export type Content = typeof en;

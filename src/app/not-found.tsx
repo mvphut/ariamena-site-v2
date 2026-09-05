@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import p from "@/components/page.module.css";
 
 export default function NotFound() {
   return (
+    <>
+    <Nav />
+    <main id="main">
     <section className={p.hero} data-theme-section="light" style={{ minHeight: "70vh" }}>
       <div className={`container ${p.heroInner}`}>
         <p className={`label ${p.eyebrow}`}>404</p>
@@ -20,5 +25,8 @@ export default function NotFound() {
         </div>
       </div>
     </section>
+    </main>
+    <Footer />
+    </>
   );
 }

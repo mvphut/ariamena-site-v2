@@ -57,3 +57,11 @@ A complete rebrand and rebuild of ariamena.com as a static Next.js 16 site (App 
 5. Arabic: the current site serves `/ar`. The new build is English only; the content module is ready to be duplicated for a second locale.
 6. Open Graph image: none is set. A 1200 × 630 image using the hero scene would complete social previews.
 7. Domain deploy: `out/` is the deployable folder. On Cloudflare Pages, build command `npm run build`, output directory `out`.
+
+## Arabic version (added later on Site 2)
+- Arabic lives at `/ar/...`, fully right-to-left, with `lang="ar"` and `dir="rtl"` mirrored onto the document.
+- Fonts: IBM Plex Sans Arabic for structure and Amiri for the human accent phrase; loaded only on Arabic pages.
+- Content: `src/content/ar.ts` mirrors `src/content/site.ts` exactly (typed as `Content`). Drafted in Modern Standard Arabic; needs a native review before launch.
+- Pages are thin wrappers around shared views in `src/views/`, so English and Arabic can never drift structurally.
+- Language switch in the header and mobile menu; sitemap lists both locales with hreflang alternates.
+- Latin data labels (dataset ids, formats, record streams) stay left-to-right through `unicode-bidi: plaintext`.

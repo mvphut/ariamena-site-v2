@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { Words } from "@/components/Words";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
-import { home, homeExtra, site } from "@/content/site";
+import { en, type Content } from "@/content/site";
 import { subscribeScroll } from "@/lib/scroll";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import s from "./home.module.css";
@@ -14,14 +14,9 @@ import s from "./home.module.css";
 type Phase = "human" | "observe" | "record" | "resolve";
 const order: Phase[] = ["human", "observe", "record", "resolve"];
 const hold: Record<Phase, number> = { human: 2400, observe: 2800, record: 3600, resolve: 3200 };
-const caption: Record<Phase, string> = {
-  human: "01 · human activity",
-  observe: "02 · observed · 14 keypoints",
-  record: "03 · recorded · frame 0412",
-  resolve: "04 · structured for training",
-};
-
-export function Hero() {
+export function Hero({ c = en }: { c?: Content }) {
+  const { home, homeExtra, site } = c;
+  const caption = site.ui.phases;
   const [phase, setPhase] = useState<Phase>("human");
   const sceneRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
@@ -68,13 +63,13 @@ export function Hero() {
           <Reveal as="p" className={`label ${s.eyebrow}`} delay={100} auto>
             {home.hero.eyebrow}
           </Reveal>
-          <Words as="h1" id="hero-title" className="display" text={home.hero.title.join(" ")} accent="real world." delay={150} stagger={70} auto />
+          <Words as="h1" id="hero-title" className="display" text={home.hero.title.join(" ")} accent={home.hero.accent} delay={150} stagger={70} auto />
           <Reveal as="p" className={`lead ${s.heroLead}`} delay={500} auto>
             {home.hero.lead}
           </Reveal>
           <Reveal className={s.ctas} delay={650} auto>
-            <Button href="/contact">{site.cta.primary}</Button>
-            <Button href="/method" variant="link">
+            <Button href={`${site.base}/contact`}>{site.cta.primary}</Button>
+            <Button href={`${site.base}/method`} variant="link">
               {site.cta.secondary}
             </Button>
           </Reveal>
@@ -131,7 +126,7 @@ export function Hero() {
         </div>
       </div>
       <div className={s.scrollHint} aria-hidden="true">
-        <span className="label">Scroll</span>
+        <span className="label">{site.ui.scroll}</span>
         <i />
       </div>
     </section>
