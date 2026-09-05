@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && npx wrangler deploy",
+    "deploy:preview": "next build && npx wrangler deploy --name ariamena-website-preview"
   },
   "dependencies": {
     "next": "16.3.4",

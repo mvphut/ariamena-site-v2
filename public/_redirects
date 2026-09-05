@@ -1,0 +1,18 @@
+# Old ariamena.com routes → new structure (permanent)
+/en                                          /                         301
+/en/services                                 /capabilities             301
+/en/services/*                               /capabilities             301
+/en/industries                               /industries               301
+/en/how-we-work                              /method                   301
+/en/quality                                  /responsible-data         301
+/en/responsible-data                         /responsible-data         301
+/en/company                                  /about                    301
+/en/contact                                  /contact                  301
+/en/privacy                                  /privacy                  301
+/en/accessibility                            /accessibility            301
+/en/*                                        /                         301
+/ar/services                                 /ar/capabilities          301
+/ar/services/*                               /ar/capabilities          301
+/ar/how-we-work                              /ar/method                301
+/ar/quality                                  /ar/responsible-data      301
+/ar/company                                  /ar/about                 301
