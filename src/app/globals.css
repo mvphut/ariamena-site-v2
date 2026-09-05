@@ -407,9 +407,10 @@ svg {
   }
 }
 
-/* On phones the headline paints immediately; the rest of the hero still animates */
+/* On phones, above-the-fold text paints immediately; the scene still animates */
 @media (max-width: 900px) {
-  .words.auto .w > span {
+  .words.auto .w > span,
+  .reveal.auto {
     animation: none;
   }
 }
@@ -470,4 +471,52 @@ svg {
 .arWrap .words .w {
   padding-bottom: 0.12em;
   margin-bottom: -0.12em;
+}
+
+/* ---------- Smooth scroll (Lenis) ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- Cursor spotlight on dark sections ---------- */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-ui);
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(94, 228, 255, 0.07), rgba(138, 108, 255, 0.03) 40%, transparent 65%);
+}
+
+[data-theme="dark"] .spotlight {
+  opacity: 1;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .spotlight {
+    display: none;
+  }
+}
+
+/* ---------- Particle canvases ---------- */
+.cloud {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }

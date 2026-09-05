@@ -1,17 +1,19 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import styles from "./Button.module.css";
+import { Magnetic } from "./Magnetic";
 
 type Props = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "secondary" | "link";
   className?: string;
+  magnetic?: boolean;
 };
 
-export function Button({ href, children, variant = "primary", className = "" }: Props) {
+export function Button({ href, children, variant = "primary", className = "", magnetic = false }: Props) {
   const cls = `${styles.btn} ${styles[variant]} ${className}`;
-  return (
+  const link = (
     <Link href={href} className={cls}>
       <span>{children}</span>
       {variant === "link" ? (
@@ -21,4 +23,5 @@ export function Button({ href, children, variant = "primary", className = "" }: 
       ) : null}
     </Link>
   );
+  return magnetic ? <Magnetic>{link}</Magnetic> : link;
 }

@@ -4,14 +4,16 @@ import { ThemeObserver } from "@/components/ThemeObserver";
 import { Grain } from "@/components/Grain";
 import { CookieConsent } from "@/components/CookieConsent";
 import { PreviewBadge } from "@/components/PreviewBadge";
+import { MotionProvider } from "@/components/MotionProvider";
+import { Spotlight } from "@/components/Spotlight";
 import { site } from "@/content/site";
 
 import "./globals.css";
 import "@/components/figure/figure.css";
 
 const sans = Instrument_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-sans", display: "swap" });
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["italic"], variable: "--font-serif", display: "swap" });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["italic"], variable: "--font-serif", display: "optional" });
+const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "optional" });
 
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -66,6 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <style>{`.reveal{opacity:1!important;transform:none!important}.words .w>span{transform:none!important}`}</style>
         </noscript>
         <ThemeObserver />
+        <MotionProvider />
+        <Spotlight />
         {children}
         <Grain />
         <PreviewBadge />

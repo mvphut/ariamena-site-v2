@@ -17,7 +17,9 @@ export function CTABand({ c = en, title, body, accent }: { c?: Content; title?: 
           {body}
         </Reveal>
         <Reveal delay={320} className={styles.actions}>
-          <Button href={`${site.base}/contact`}>{site.cta.primary}</Button>
+          <Button href={`${site.base}/contact`} magnetic>
+            {site.cta.primary}
+          </Button>
           <a href={`mailto:${site.email}`} className={styles.mail}>
             {site.email}
           </a>
