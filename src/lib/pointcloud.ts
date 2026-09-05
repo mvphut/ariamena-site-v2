@@ -130,6 +130,7 @@ export class Cloud {
   h = 0;
   dpr = 1;
   progress = 0; // 0 = shape, 1 = target
+  tint: number | null = null; // color blend override (defaults to progress)
   assemble = 0; // 0 = scattered intro, 1 = in place
   mouse = { x: -1e4, y: -1e4, on: false };
   bucket: Uint8Array;
@@ -209,6 +210,7 @@ export class Cloud {
     const size = opt.size ?? 1.6;
     const drift = opt.drift ?? 2.2;
     const p = this.progress;
+    const tint = this.tint ?? p;
     const asm = this.assemble;
     const easeAsm = 1 - Math.pow(1 - asm, 3);
     const scanX = opt.scan ? ((time * 0.14) % 1.4) * w - 0.2 * w : -1e4;
@@ -220,7 +222,7 @@ export class Cloud {
     const colors: string[] = [];
     const hi: string[] = [];
     for (let b = 0; b < BUCKETS; b++) {
-      colors.push(this.palette(p, (b + 0.5) / BUCKETS));
+      colors.push(this.palette(tint, (b + 0.5) / BUCKETS));
       hi.push("#ffffff");
     }
     const xs = new Float32Array(n);

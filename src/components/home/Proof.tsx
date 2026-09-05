@@ -5,6 +5,8 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
 import { DataCard } from "@/components/DataCard";
 import { FigureShape } from "@/components/figure/Figure";
+import { PointCloud } from "@/components/PointCloud";
+import { drawFigure } from "@/lib/pointcloud";
 import { Environment } from "@/components/figure/Environment";
 import { en, type Content } from "@/content/site";
 import { useInView } from "@/lib/useInView";
@@ -22,11 +24,12 @@ export function Proof({ c = en }: { c?: Content }) {
       <div className={`container ${s.proofGrid}`}>
         <div>
           <div className={`${s.proofFrame} draw ${inView ? "is-in" : ""}`} ref={ref}>
+            <PointCloud count={5000} box={[640, 480]} draw={(ctx) => drawFigure(ctx, "reaching", 200, 70, 1)} warm={["#9fb3c8", "#5ee4ff", "#8a6cff"]} cool={["#9fb3c8", "#5ee4ff", "#8a6cff"]} size={1.5} drift={1.4} scan assemble="scroll" />
             <svg viewBox="0 0 640 480" className={s.dataSvg} aria-hidden="true">
               <g transform="translate(60 90)">
                 <Environment stroke="var(--cyan)" opacity={0.18} />
               </g>
-              <FigureShape pose="reaching" mode="both" x={200} y={70} fill="rgba(244,239,231,0.12)" stroke="var(--cyan)" box />
+              <FigureShape pose="reaching" mode="skeleton" x={200} y={70} stroke="var(--cyan)" box />
               <g fill="none" stroke="var(--uv)" strokeWidth="1" strokeDasharray="4 3">
                 <rect x="256" y="292" width="126" height="54" />
                 <rect x="84" y="196" width="118" height="164" />

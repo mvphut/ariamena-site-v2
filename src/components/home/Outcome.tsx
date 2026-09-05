@@ -3,6 +3,8 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
+import { PointCloud } from "@/components/PointCloud";
+import { drawFigure } from "@/lib/pointcloud";
 import { Environment } from "@/components/figure/Environment";
 import { en, type Content } from "@/content/site";
 import { useInView } from "@/lib/useInView";
@@ -18,6 +20,7 @@ export function Outcome({ c = en }: { c?: Content }) {
       </div>
       <div className={`container ${s.outGrid}`}>
         <div className={`${s.outScene} draw ${inView ? "is-in" : ""}`} ref={ref}>
+          <PointCloud count={6000} box={[640, 480]} draw={(ctx) => drawFigure(ctx, "reaching", 200, 70, 1)} warm={["#c9a98c", "#c2a086", "#b8957c"]} cool={["#c9a98c", "#c2a086", "#b8957c"]} size={1.6} drift={1.6} assemble="scroll" />
           <svg viewBox="0 0 640 480" className={s.outSvg} aria-hidden="true">
             <g transform="translate(60 90)">
               <Environment stroke="var(--ink)" opacity={0.22} />
@@ -27,7 +30,6 @@ export function Outcome({ c = en }: { c?: Content }) {
                 <path key={i} d={`M40 ${120 + i * 40}C200 ${90 + i * 40} 360 ${160 + i * 40} 600 ${110 + i * 40}`} />
               ))}
             </g>
-            <FigureShape pose="reaching" mode="silhouette" x={200} y={70} scale={1} fill="var(--clay)" />
             <g className={s.outLayer}>
               <FigureShape pose="reaching" mode="skeleton" x={200} y={70} scale={1} stroke="var(--cobalt)" />
             </g>

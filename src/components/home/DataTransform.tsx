@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { PointCloud } from "@/components/PointCloud";
+import { drawFigure, type Cloud } from "@/lib/pointcloud";
+import { motion } from "@/lib/motion";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
@@ -32,6 +35,25 @@ export function DataTransform({ c = en }: { c?: Content }) {
     setState(id);
   };
 
+  // The particle figure follows the state: raw (warm, whole) → layer (cool tint) → structured (dispersed into a grid)
+  const cloudRef = useRef<Cloud | null>(null);
+  useEffect(() => {
+    const cl = cloudRef.current;
+    if (!cl) return;
+    const to = state === "raw" ? { progress: 0, tint: 0 } : state === "layer" ? { progress: 0, tint: 0.7 } : { progress: 1, tint: 1 };
+    if (reduced) {
+      cl.progress = to.progress;
+      cl.tint = to.tint;
+      cl.render(performance.now());
+      return;
+    }
+    const { gsap } = motion();
+    const tw = gsap.to(cl, { ...to, duration: 1.1, ease: "power3.inOut" });
+    return () => {
+      tw.kill();
+    };
+  }, [state, reduced]);
+
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       e.preventDefault();
@@ -50,18 +72,32 @@ export function DataTransform({ c = en }: { c?: Content }) {
       </div>
       <div className={`container ${s.dataGrid}`}>
         <div className={`${s.dataScene} draw ${inView ? "is-in" : ""} ${s["st_" + state]}`} ref={ref}>
+          <PointCloud
+            count={6000}
+            box={[640, 480]}
+            draw={(ctx) => drawFigure(ctx, "reaching", 200, 70, 1)}
+            target="grid-right"
+            warm={["#e9e2d6", "#d8cbb8", "#c9a98c"]}
+            cool={["#8f9bb0", "#5ee4ff", "#8a6cff"]}
+            size={1.6}
+            drift={1.8}
+            assemble="scroll"
+            onReady={(cl) => {
+              cloudRef.current = cl;
+              cl.tint = 0;
+            }}
+          />
           <svg viewBox="0 0 640 480" className={s.dataSvg} aria-hidden="true">
             <g className={s.lRaw}>
               <g transform="translate(60 90)">
                 <Environment stroke="#fff" opacity={0.22} />
               </g>
-              <FigureShape pose="reaching" mode="silhouette" x={200} y={70} scale={1} fill="rgba(244,239,231,0.85)" />
             </g>
             <g className={s.lLayer}>
               <g transform="translate(60 90)">
                 <Environment stroke="var(--cyan)" opacity={0.18} />
               </g>
-              <FigureShape pose="reaching" mode="both" x={200} y={70} scale={1} fill="rgba(255,255,255,0.05)" stroke="var(--cyan)" box />
+              <FigureShape pose="reaching" mode="skeleton" x={200} y={70} scale={1} stroke="var(--cyan)" box />
               <g fill="none" stroke="var(--uv)" strokeWidth="1" strokeDasharray="4 3">
                 <rect x="256" y="292" width="126" height="54" />
                 <rect x="84" y="196" width="118" height="164" />
@@ -94,15 +130,6 @@ export function DataTransform({ c = en }: { c?: Content }) {
                     <rect x="120" y="-10" width={140 + (i % 3) * 40} height="26" rx="2" fill={c} fillOpacity="0.14" stroke={c} strokeOpacity="0.5" />
                     <text x="130" y="6" fill={c}>{v}</text>
                   </g>
-                ))}
-              </g>
-              <g transform="translate(456 76)">
-                <rect width="120" height="180" rx="3" fill="none" stroke="var(--cyan)" strokeOpacity="0.6" />
-                <FigureShape pose="reaching" mode="skeleton" x={2} y={6} scale={0.5} stroke="var(--cyan)" />
-              </g>
-              <g transform="translate(456 300)" fill="var(--uv)" opacity="0.8">
-                {Array.from({ length: 48 }).map((_, i) => (
-                  <rect key={i} x={(i % 12) * 10} y={Math.floor(i / 12) * 10} width="6" height="6" opacity={((i * 7) % 5) / 5 + 0.2} />
                 ))}
               </g>
             </g>
