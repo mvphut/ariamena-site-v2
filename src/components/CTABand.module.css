@@ -1,0 +1,55 @@
+.band {
+  background: var(--black);
+  color: var(--paper);
+  padding-block: clamp(110px, 16vh, 200px);
+  position: relative;
+  overflow: hidden;
+}
+
+.band::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(120vw, 1400px);
+  height: 60%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(138, 108, 255, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.title {
+  max-width: 16ch;
+}
+
+.body {
+  color: var(--mist);
+  max-width: 44ch;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.mail {
+  color: var(--mist);
+  font-size: 15px;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease-ui);
+}
+
+.mail:hover {
+  color: var(--paper);
+}

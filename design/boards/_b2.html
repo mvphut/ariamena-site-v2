@@ -1,0 +1,100 @@
+<style>
+.h2{--bg:#F7F5F0;--stone:#ECE8E0;--gray:#C9CDD3;--ink:#14161A;--mute:#5C6068;--cobalt:#1F4FD8;--ultra:#2338B5;--violet:#8C7BFF;--mint:#B8E6D2}
+.h2 .hero{background:var(--bg);color:var(--ink);height:640px;position:relative;overflow:hidden}
+.h2 nav{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;border-bottom:1px solid #E2DED5}
+.h2 .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px}
+.h2 .brand svg{width:26px;height:18px;stroke:var(--ink);fill:var(--ink)}
+.h2 .links{display:flex;gap:26px;font-size:13.5px;color:#3E4148}
+.h2 .btn{background:var(--ink);color:#fff;border-radius:4px;padding:10px 18px;font-size:13.5px;font-weight:600}
+.h2 .body{padding:44px 40px 0;display:grid;grid-template-columns:1fr;gap:34px}
+.h2 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);margin-bottom:20px}
+.h2 h2{font-size:66px;line-height:.98;letter-spacing:-.035em;font-weight:500;max-width:14ch;margin-bottom:20px}
+.h2 h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.04em}
+.h2 .lead{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+.h2 p{font-size:16px;line-height:1.55;color:var(--mute);max-width:46ch}
+.h2 .ctas{display:flex;align-items:center;gap:22px;margin-top:22px}
+.h2 .link{color:var(--ink);font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:1px}
+.h2 .diagram{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #DCD8CF;border-radius:6px;background:#fff;overflow:hidden}
+.h2 .dcell{padding:16px 18px 8px;border-right:1px solid #E7E3DA;position:relative;height:236px}
+.h2 .dcell:last-child{border-right:0}
+.h2 .dcell .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between}
+.h2 .dcell .lab b{color:var(--cobalt);font-weight:500}
+.h2 .dcell svg{position:absolute;left:0;right:0;bottom:0;height:190px;width:100%}
+.m2{background:#F7F5F0;color:#14161A;height:640px;padding:18px;position:relative;overflow:hidden}
+.m2 .top{display:flex;justify-content:space-between;align-items:center;margin:10px 0 36px;font-weight:600;font-size:14px}
+.m2 .top svg{width:22px;height:15px;stroke:#14161A;fill:#14161A;vertical-align:-2px;margin-right:6px}
+.m2 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#1F4FD8;margin-bottom:14px}
+.m2 h2{font-size:38px;line-height:.98;letter-spacing:-.03em;font-weight:500;margin-bottom:14px}
+.m2 h2 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.m2 p{font-size:13px;line-height:1.5;color:#5C6068;margin-bottom:18px}
+.m2 .btn{display:block;text-align:center;background:#14161A;color:#fff;border-radius:4px;padding:12px;font-weight:600;font-size:13px;margin-bottom:10px}
+.m2 .link{text-align:center;font-size:12.5px;color:#14161A;text-decoration:underline}
+.m2 .card{position:absolute;left:18px;right:18px;bottom:18px;height:190px;background:#fff;border:1px solid #DCD8CF;border-radius:6px;padding:12px}
+.m2 .card .lab{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#5C6068;display:flex;justify-content:space-between}
+</style>
+<div class="board h2">
+ <header class="board-head"><div><div class="tag">Direction 02 — Visual identity</div><h1>Field Intelligence</h1></div><p>A light, scientific, human-centered system. Warm white and pale stone bases, cobalt as the single working accent, mint for validation states only. The tone is editorial and research-driven: diagrams instead of glow, one serif italic word to carry the human moment, information design as the visual signature.</p></header>
+ <section class="row hero-row">
+  <div class="desktop-frame"><div class="browser-bar"><i></i><i></i><i></i><span class="url">ariamena.com</span></div>
+   <div class="hero">
+    <nav><div class="brand"><svg><use href="#logoAM"/></svg>Ariamena</div><div class="links"><span>Capabilities</span><span>Industries</span><span>Method</span><span>Responsible Data</span><span>About</span></div><div class="btn">Start a conversation</div></nav>
+    <div class="body">
+     <div class="lead"><div><div class="eyebrow">Human data infrastructure for real-world AI</div><h2>AI learns from the <em>real world.</em></h2></div>
+      <div><p>Ariamena transforms human knowledge, activity, and environments into the reliable training data intelligent systems need to understand how life and work actually happen.</p><div class="ctas"><span class="btn">Start a conversation</span><span class="link">Explore the process</span></div></div></div>
+     <div class="diagram">
+      <div class="dcell"><div class="lab"><span>01 · Observation</span><b>field</b></div><svg viewBox="0 0 340 190"><use href="#env" x="20" y="-40" width="300" height="230" stroke="#D9D4C9"/><use href="#sil" x="95" y="-10" width="150" height="200" fill="#C9C3B6" stroke="#C9C3B6"/></svg></div>
+      <div class="dcell"><div class="lab"><span>02 · Structure</span><b>annotated</b></div><svg viewBox="0 0 340 190"><use href="#env" x="20" y="-40" width="300" height="230" stroke="#EAE6DD"/><use href="#sil" x="95" y="-10" width="150" height="200" fill="#EEEBE4" stroke="#EEEBE4"/><use href="#skel" x="95" y="-10" width="150" height="200" stroke="#1F4FD8" fill="#1F4FD8"/><rect x="108" y="-2" width="120" height="186" fill="none" stroke="#1F4FD8" stroke-width="1" stroke-dasharray="3 3"/><text x="232" y="30" font-family="JetBrains Mono" font-size="9" fill="#1F4FD8">person · reaching</text></svg></div>
+      <div class="dcell"><div class="lab"><span>03 · Model-ready</span><b>validated</b></div><svg viewBox="0 0 340 190"><g fill="none" stroke="#E2DED5"><path d="M0 40h340M0 80h340M0 120h340M0 160h340M60 0v190M120 0v190M180 0v190M240 0v190M300 0v190"/></g><g><rect x="62" y="42" width="56" height="36" fill="#B8E6D2"/><rect x="122" y="82" width="56" height="36" fill="#B8E6D2"/><rect x="182" y="42" width="56" height="36" fill="#1F4FD8"/><rect x="242" y="122" width="56" height="36" fill="#B8E6D2"/><rect x="2" y="122" width="56" height="36" fill="#8C7BFF" opacity=".7"/><rect x="302" y="82" width="38" height="36" fill="#1F4FD8"/></g><text x="66" y="66" font-family="JetBrains Mono" font-size="9" fill="#14161A">accepted</text><text x="186" y="66" font-family="JetBrains Mono" font-size="9" fill="#fff">keypoints</text><text x="126" y="106" font-family="JetBrains Mono" font-size="9" fill="#14161A">reviewed</text></svg></div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="mobile-frame"><div class="mobile-screen m2">
+   <div class="top"><span><svg><use href="#logoAM"/></svg>Ariamena</span><span style="font-size:18px">≡</span></div>
+   <div class="eyebrow">Human data for real-world AI</div><h2>AI learns from the <em>real world.</em></h2><p>Human knowledge, activity, and environments, transformed into reliable training data.</p><div class="btn">Start a conversation</div><div class="link">Explore the process</div>
+   <div class="card"><div class="lab"><span>02 · Structure</span><span style="color:#1F4FD8">annotated</span></div><svg viewBox="0 0 260 150" width="100%" style="margin-top:6px"><use href="#sil" x="70" y="-4" width="120" height="160" fill="#EEEBE4" stroke="#EEEBE4"/><use href="#skel" x="70" y="-4" width="120" height="160" stroke="#1F4FD8" fill="#1F4FD8"/><rect x="80" y="2" width="96" height="146" fill="none" stroke="#1F4FD8" stroke-dasharray="3 3"/></svg></div>
+  </div></div>
+ </section>
+ <section class="row three">
+  <div class="cell"><h3>Logo direction — AM monogram</h3>
+   <div class="logo-row"><div style="background:#fff;border:1px solid #DCD8CF;border-radius:8px;width:150px;height:150px;display:flex;align-items:center;justify-content:center"><svg width="120" height="80" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg></div>
+   <div><div style="font-size:30px;font-weight:600;letter-spacing:-.03em;display:flex;align-items:center;gap:12px"><svg width="44" height="30" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg>Ariamena</div><p class="note" style="margin-top:12px">Aria and Mena as one continuous line. The A's right leg becomes the M's first stem: two ideas sharing a stroke. Reads as a signal trace at small sizes and a monogram at large ones.</p></div></div>
+   <div class="logo-sizes"><svg width="90" height="60" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg><svg width="54" height="36" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg><svg width="33" height="22" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg><svg width="24" height="16" stroke="#14161A" fill="#14161A"><use href="#logoAM"/></svg><svg width="33" height="22" stroke="#1F4FD8" fill="#1F4FD8"><use href="#logoAM"/></svg></div>
+   <div class="spec">one color · single stroke weight · wide format suits header lockups · needs 24 px minimum</div></div>
+  <div class="cell"><h3>Color palette</h3><div class="swatches">
+   <div class="sw" style="background:#F7F5F0"><b>Warm white</b><span>#F7F5F0</span></div>
+   <div class="sw" style="background:#ECE8E0"><b>Pale stone</b><span>#ECE8E0</span></div>
+   <div class="sw" style="background:#C9CDD3"><b>Cool gray</b><span>#C9CDD3</span></div>
+   <div class="sw" style="background:#14161A;color:#fff"><b>Ink</b><span>#14161A</span></div>
+   <div class="sw" style="background:#1F4FD8;color:#fff"><b>Cobalt · action + data</b><span>#1F4FD8</span></div>
+   <div class="sw" style="background:#2338B5;color:#fff"><b>Ultramarine · hover</b><span>#2338B5</span></div>
+   <div class="sw" style="background:#8C7BFF;color:#fff"><b>Soft violet · secondary</b><span>#8C7BFF</span></div>
+   <div class="sw" style="background:#B8E6D2"><b>Mint · validated</b><span>#B8E6D2</span></div></div>
+   <div class="spec">ratio · 85% warm neutrals / 10% ink / 4% cobalt / 1% mint + violet<br>mint marks accepted or validated states only</div></div>
+  <div class="cell"><h3>Typography</h3><div class="type-sample"><div class="d" style="font-weight:500">Reality becomes a <span class="serif">usable</span> signal.</div><div class="h" style="font-weight:500">Capture · Organize · Label · Validate</div><div class="b">Instrument Sans at medium weight, one Instrument Serif italic word per headline for the human moment. JetBrains Mono for figure captions and diagram labels, as in a research paper.</div><div class="l" style="color:#1F4FD8">Fig. 02 · Observation to structure</div></div><div class="spec">Instrument Sans 400–500 · Instrument Serif Italic · JetBrains Mono<br>display −3.5% · serif accents +4% size</div></div>
+ </section>
+ <section class="row three">
+  <div class="cell"><h3>UI and card style</h3>
+   <div style="background:#F7F5F0;border:1px solid #DCD8CF;border-radius:8px;padding:22px;flex:1;display:flex;flex-direction:column;gap:16px">
+    <div style="border:1px solid #DCD8CF;border-radius:4px;padding:18px;background:#fff"><div class="mono" style="font-size:10px;letter-spacing:.14em;color:#1F4FD8;margin-bottom:10px">03 — STRUCTURE</div><div style="font-size:19px;font-weight:500;letter-spacing:-.02em;margin-bottom:8px">Structure and annotate</div><div style="font-size:13px;color:#5C6068;line-height:1.5">Boundaries, keypoints, sequences, transcripts, and the metadata that keeps it meaningful.</div></div>
+    <div style="display:flex;gap:10px;align-items:center"><span style="background:#14161A;color:#fff;border-radius:4px;padding:9px 16px;font-size:13px;font-weight:600">Primary</span><span style="border:1px solid #14161A;border-radius:4px;padding:9px 16px;font-size:13px">Secondary</span><span style="font-size:13px;margin-left:auto;text-decoration:underline">Text link</span></div>
+    <div style="border-bottom:1px solid #14161A;padding:11px 0;font-size:13px;color:#5C6068;display:flex;justify-content:space-between"><span>Work email</span><span class="mono" style="color:#1F4FD8;font-size:10px">REQUIRED</span></div>
+   </div>
+   <div class="spec">square 4 px radius · underline inputs · white cards on warm white · hairline #DCD8CF</div></div>
+  <div class="cell"><h3>Motion language — draft and settle</h3>
+   <div class="frames">
+    <div class="frame" style="background:#fff;border:1px solid #DCD8CF"><svg viewBox="0 0 120 138"><use href="#sil" x="15" y="6" width="90" height="126" fill="#C9C3B6" stroke="#C9C3B6"/></svg><small style="color:#5C6068">0.0 s</small></div>
+    <div class="frame" style="background:#fff;border:1px solid #DCD8CF"><svg viewBox="0 0 120 138"><use href="#sil" x="15" y="6" width="90" height="126" fill="#EEEBE4" stroke="#EEEBE4"/><use href="#skel" x="15" y="6" width="90" height="126" stroke="#1F4FD8" fill="#1F4FD8" opacity=".5"/></svg><small style="color:#5C6068">0.4 s</small></div>
+    <div class="frame" style="background:#fff;border:1px solid #DCD8CF"><svg viewBox="0 0 120 138"><use href="#skel" x="15" y="6" width="90" height="126" stroke="#1F4FD8" fill="#1F4FD8"/><rect x="18" y="8" width="84" height="122" fill="none" stroke="#1F4FD8" stroke-dasharray="3 3" stroke-width=".8"/></svg><small style="color:#5C6068">0.8 s</small></div>
+    <div class="frame" style="background:#fff;border:1px solid #DCD8CF;background-image:linear-gradient(#EEEBE4 1px,transparent 1px),linear-gradient(90deg,#EEEBE4 1px,transparent 1px);background-size:14px 14px"><svg viewBox="0 0 120 138"><rect x="16" y="30" width="26" height="18" fill="#B8E6D2"/><rect x="44" y="58" width="26" height="18" fill="#B8E6D2"/><rect x="72" y="30" width="26" height="18" fill="#1F4FD8"/><rect x="44" y="86" width="26" height="18" fill="#8C7BFF" opacity=".7"/></svg><small style="color:#5C6068">1.2 s</small></div>
+   </div>
+   <p class="note">Elements draft in like figures in a paper: a hairline draws, a label types, a keypoint settles. No parallax; instead, staggered reveals with 60 ms offsets. Diagrams animate on intersection once, then hold. Ease: cubic-bezier(.16,1,.3,1).</p>
+   <div class="spec">no continuous motion · reveals ≤ 500 ms · reduced motion: instant</div></div>
+  <div class="cell why"><h3>Why this fits Ariamena</h3>
+   <p><b>Strength.</b> The most trustworthy of the three. Research organizations and enterprise buyers read light editorial systems as credible and calm. The human story is easy to feel in warm neutrals.</p>
+   <p><b>Risk.</b> Without the technical depth of a dark end, the "structured intelligence" half can feel understated. The site relies on diagram craft to prove technical seriousness.</p>
+   <p><b>Best for.</b> A brand that wants to be seen as the thoughtful, rigorous partner first, and as infrastructure second.</p>
+   <div class="spec" style="margin-top:auto">contrast · body #5C6068 on #F7F5F0 = 5.9:1 ✓ · cobalt on warm white = 6.4:1 ✓</div></div>
+ </section>
+</div>
+</body></html>

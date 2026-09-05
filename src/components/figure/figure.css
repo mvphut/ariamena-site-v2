@@ -1,0 +1,49 @@
+/* skeleton draw-in, driven by an .is-in class on any ancestor */
+.draw .fig-bones,
+.draw .fig-head {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.1s var(--ease-narrative);
+}
+
+.draw .fig-pts circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.4s var(--ease-ui);
+  transition-delay: calc(0.5s + var(--i) * 45ms);
+}
+
+.draw .fig-box {
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-ui) 1s;
+}
+
+.draw.is-in .fig-bones,
+.draw.is-in .fig-head {
+  stroke-dashoffset: 0;
+}
+
+.draw.is-in .fig-pts circle {
+  transform: scale(1);
+}
+
+.draw.is-in .fig-box {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw .fig-bones,
+  .draw .fig-head {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .draw .fig-pts circle {
+    transform: none;
+    transition: none;
+  }
+  .draw .fig-box {
+    opacity: 1;
+    transition: none;
+  }
+}
