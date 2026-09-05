@@ -65,3 +65,9 @@ A complete rebrand and rebuild of ariamena.com as a static Next.js 16 site (App 
 - Pages are thin wrappers around shared views in `src/views/`, so English and Arabic can never drift structurally.
 - Language switch in the header and mobile menu; sitemap lists both locales with hreflang alternates.
 - Latin data labels (dataset ids, formats, record streams) stay left-to-right through `unicode-bidi: plaintext`.
+
+## Motion upgrade (Tier 1)
+- Particle engine (`src/lib/pointcloud.ts`, `src/components/PointCloud.tsx`): canvas point clouds sampled from the figure geometry. Hero 9,000 points, scenes 1,800 to 2,600, phones at 42 percent density. Idle drift, cursor repulsion, scan pulse, scroll-scrubbed dispersal into a data grid.
+- GSAP ScrollTrigger + Lenis smooth scroll (`MotionProvider`). Reduced motion disables both and renders static frames.
+- Cursor spotlight on dark sections, magnetic primary buttons.
+- Clouds initialize lazily near the viewport; accent fonts load as `optional`; phone hero copy height is reserved. Result: desktop 99/100/100/100, mobile observed 95 with CLS 0.014.
