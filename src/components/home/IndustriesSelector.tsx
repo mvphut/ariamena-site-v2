@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useInView } from "@/lib/useInView";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 import { SectionHeader } from "@/components/SectionHeader";
 import { EnvGlyph } from "@/components/EnvGlyph";
 import { home, industries } from "@/content/site";
@@ -9,14 +11,29 @@ import s from "./home.module.css";
 
 export function IndustriesSelector() {
   const [active, setActive] = useState(industries[0].slug);
+  const [interacted, setInteracted] = useState(false);
+  const { ref, inView } = useInView<HTMLDivElement>(0.3);
+  const reduced = useReducedMotion();
   const current = industries.find((i) => i.slug === active)!;
+
+  // Advances through the environments on its own until the visitor picks one.
+  useEffect(() => {
+    if (!inView || interacted || reduced) return;
+    const id = setInterval(() => setActive((cur) => industries[(industries.findIndex((i) => i.slug === cur) + 1) % industries.length].slug), 3800);
+    return () => clearInterval(id);
+  }, [inView, interacted, reduced]);
+
+  const pick = (slug: string) => {
+    setInteracted(true);
+    setActive(slug);
+  };
 
   return (
     <section className={`section theme-dark ${s.industries}`} data-theme-section="dark" aria-labelledby="industries-title">
       <div className="container">
         <SectionHeader id="industries-title" number={home.industries.number} eyebrow={home.industries.eyebrow} title={home.industries.title} body={home.industries.body} />
       </div>
-      <div className={`container ${s.indGrid}`}>
+      <div className={`container ${s.indGrid}`} ref={ref}>
         <div className={s.indListWrap}>
           <ul className={s.indList} aria-label="Environments">
             {industries.map((ind, i) => (
@@ -25,9 +42,9 @@ export function IndustriesSelector() {
                   type="button"
                   className={s.indBtn}
                   aria-pressed={ind.slug === active}
-                  onClick={() => setActive(ind.slug)}
-                  onMouseEnter={() => setActive(ind.slug)}
-                  onFocus={() => setActive(ind.slug)}
+                  onClick={() => pick(ind.slug)}
+                  onMouseEnter={() => pick(ind.slug)}
+                  onFocus={() => pick(ind.slug)}
                 >
                   <span className={`label ${s.indN}`}>{String(i + 1).padStart(2, "0")}</span>
                   <span className={s.indName}>{ind.name}</span>

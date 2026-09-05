@@ -20,7 +20,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: { default: `${site.name} — ${site.tagline}`, template: `%s — ${site.name}` },
   description: site.description,
-  icons: { icon: `${bp}/icon.svg` },
+  icons: {
+    icon: [
+      { url: `${bp}/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${bp}/favicon-16.png`, sizes: "16x16", type: "image/png" },
+      { url: `${bp}/icon.svg`, type: "image/svg+xml" },
+    ],
+    apple: `${bp}/apple-touch-icon.png`,
+  },
   openGraph: {
     title: site.name,
     description: site.tagline,

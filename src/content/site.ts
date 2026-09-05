@@ -7,7 +7,7 @@ export const site = {
   description:
     "Ariamena transforms human knowledge, activity, and environments into the reliable training data intelligent systems need to understand how life and work actually happen.",
   email: "partnerships@ariamena.com",
-  linkedin: "https://www.linkedin.com/company/ariamena",
+  linkedin: "https://www.linkedin.com/company/ariamena/",
   nav: [
     { label: "Capabilities", href: "/capabilities" },
     { label: "Industries", href: "/industries" },
@@ -469,16 +469,16 @@ export const homeExtra = {
   faq: { eyebrow: "Questions", title: "What buyers ask first." },
   stream: [
     "frame 0412 · t 00:14.20",
-    "subject person_01 · conf 0.98",
+    "person_01 · conf 0.98",
     "kp 07 wrist_r · 206, 96",
     "kp 05 elbow_r · 166, 104",
     "action reach → grasp",
-    "object tray · bbox 256 292 126 54",
+    "obj tray · 256, 292",
     "station B · shift 2",
     "kp 13 ankle_r · 132, 308",
     "seq 04 / 12 · accepted",
     "reviewer 2 of 3 · agree",
-    "consent session_0412 · yes",
+    "consent s0412 · yes",
     "export coco · rlds · v1.2",
   ],
 };

@@ -1,29 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
 import { FigureShape } from "@/components/figure/Figure";
 import { Environment } from "@/components/figure/Environment";
 import { home } from "@/content/site";
 import { useInView } from "@/lib/useInView";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 import s from "./home.module.css";
 
 type StateId = "raw" | "layer" | "structure";
 
 export function DataTransform() {
-  const [state, setState] = useState<StateId>("layer");
+  const [state, setState] = useState<StateId>("raw");
+  const [interacted, setInteracted] = useState(false);
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
+  const reduced = useReducedMotion();
   const idx = home.data.states.findIndex((x) => x.id === state);
+
+  // Cycles raw → data layer → structured on its own until the visitor takes over.
+  useEffect(() => {
+    if (!inView || interacted || reduced) return;
+    const id = setInterval(() => setState((cur) => home.data.states[(home.data.states.findIndex((x) => x.id === cur) + 1) % 3].id as StateId), 3200);
+    return () => clearInterval(id);
+  }, [inView, interacted, reduced]);
+
+  const pick = (id: StateId) => {
+    setInteracted(true);
+    setState(id);
+  };
 
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight" || e.key === "ArrowDown") {
       e.preventDefault();
-      setState(home.data.states[(idx + 1) % 3].id as StateId);
+      pick(home.data.states[(idx + 1) % 3].id as StateId);
     }
     if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
       e.preventDefault();
-      setState(home.data.states[(idx + 2) % 3].id as StateId);
+      pick(home.data.states[(idx + 2) % 3].id as StateId);
     }
   };
 
@@ -102,9 +117,9 @@ export function DataTransform() {
                 type="button"
                 aria-pressed={state === st.id}
                 className={s.segBtn}
-                onClick={() => setState(st.id as StateId)}
-                onMouseEnter={() => setState(st.id as StateId)}
-                onFocus={() => setState(st.id as StateId)}
+                onClick={() => pick(st.id as StateId)}
+                onMouseEnter={() => pick(st.id as StateId)}
+                onFocus={() => pick(st.id as StateId)}
               >
                 {st.label}
               </button>

@@ -546,3 +546,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+.cell {
+  transition: background-color 0.3s var(--ease-ui);
+}
+
+.cell:hover {
+  background: #ffffff;
+}

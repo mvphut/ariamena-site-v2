@@ -35,6 +35,7 @@ export function Proof() {
                 <text x="86" y="190">shelving</text>
               </g>
             </svg>
+            <div className={s.scan} aria-hidden="true" />
             <span className={`${s.tag} ${s.tagCool}`} style={{ left: 16, top: 16 }}>
               {pr.card[0].value} · frame 0412 · accepted
             </span>

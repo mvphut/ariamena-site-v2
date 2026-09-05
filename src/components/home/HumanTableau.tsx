@@ -13,7 +13,9 @@ import s from "./home.module.css";
 const scenes: Record<string, React.ReactNode> = {
   hand: (
     <g transform="translate(70 30) scale(1.15)">
-      <Hand mode="silhouette" />
+      <g className={s.animHand}>
+        <Hand mode="silhouette" />
+      </g>
     </g>
   ),
   floor: (
@@ -24,17 +26,23 @@ const scenes: Record<string, React.ReactNode> = {
         <rect x="150" y="196" width="230" height="34" rx="2" />
         <path d="M160 196v-30h40v30M330 196v-44h36v44" />
       </g>
+      <rect className={s.animItem} x="210" y="182" width="26" height="14" rx="2" fill="var(--clay)" opacity="0.7" />
       <FigureShape pose="reaching" x={150} y={60} scale={0.62} fill="var(--clay)" />
-      <FigureShape pose="walking" x={300} y={90} scale={0.42} fill="var(--clay)" />
+      <g className={s.walker}>
+        <FigureShape pose="walking" x={300} y={90} scale={0.42} fill="var(--clay)" />
+      </g>
     </g>
   ),
   instruction: (
     <g>
       <g stroke="var(--ink)" strokeOpacity="0.28" fill="none">
         <rect x="150" y="50" width="220" height="120" rx="2" />
-        <path d="M0 240h400M170 80h100M170 100h60" />
+        <path d="M0 240h400" />
+        <path className={s.animWrite} d="M170 80h100M170 100h60" pathLength={1} />
       </g>
-      <FigureShape pose="teaching" x={40} y={50} scale={0.62} fill="var(--clay)" />
+      <g className={s.animSway}>
+        <FigureShape pose="teaching" x={40} y={50} scale={0.62} fill="var(--clay)" />
+      </g>
       <FigureShape pose="sitting" x={170} y={160} scale={0.36} fill="var(--clay)" />
       <FigureShape pose="sitting" x={250} y={160} scale={0.36} fill="var(--clay)" />
       <FigureShape pose="sitting" x={330} y={160} scale={0.36} fill="var(--clay)" />
@@ -48,7 +56,7 @@ const scenes: Record<string, React.ReactNode> = {
       </g>
       <FigureShape pose="handing" x={20} y={40} scale={0.66} fill="var(--clay)" />
       <FigureShape pose="handing" x={250} y={40} scale={0.66} fill="var(--clay)" flip />
-      <rect x="175" y="118" width="46" height="30" rx="2" fill="var(--warm)" stroke="var(--ink)" strokeOpacity="0.5" />
+      <rect className={s.animPass} x="175" y="118" width="46" height="30" rx="2" fill="var(--warm)" stroke="var(--ink)" strokeOpacity="0.5" />
     </g>
   ),
   home: (
@@ -57,6 +65,8 @@ const scenes: Record<string, React.ReactNode> = {
         <rect x="40" y="40" width="120" height="110" rx="2" />
         <path d="M100 40v110M40 95h120M0 250h400" />
         <path d="M200 250v-70c0-10 8-18 18-18h140c10 0 18 8 18 18v70M200 200h176" />
+      </g>
+      <g className={s.animPlant} fill="none" stroke="var(--ink)" strokeOpacity="0.28">
         <path d="M340 250v-30M340 220c-20-30 10-60 20-50M340 220c10-40-20-50-26-38" />
       </g>
       <FigureShape pose="sitting" x={190} y={70} scale={0.58} fill="var(--clay)" />
@@ -69,10 +79,12 @@ const scenes: Record<string, React.ReactNode> = {
         <rect x="260" y="150" width="60" height="45" /><rect x="320" y="150" width="60" height="45" /><rect x="290" y="105" width="60" height="45" /><rect x="260" y="195" width="120" height="45" />
         <path d="M40 240v-40h90v40M40 220h90M60 240h-8M70 240h-8" />
       </g>
-      <rect x="130" y="200" width="60" height="40" rx="2" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
-      <circle cx="140" cy="244" r="6" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
-      <circle cx="180" cy="244" r="6" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
-      <FigureShape pose="pushing" x={20} y={80} scale={0.55} fill="var(--clay)" />
+      <g className={s.animRoll}>
+        <rect x="130" y="200" width="60" height="40" rx="2" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
+        <circle cx="140" cy="244" r="6" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
+        <circle cx="180" cy="244" r="6" fill="none" stroke="var(--ink)" strokeOpacity="0.5" />
+        <FigureShape pose="pushing" x={20} y={80} scale={0.55} fill="var(--clay)" />
+      </g>
     </g>
   ),
 };
