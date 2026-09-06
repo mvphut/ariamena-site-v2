@@ -37,7 +37,7 @@ export function CookieConsent() {
   const base = isAr ? "/ar" : "";
   const [visible, setVisible] = useState(false);
   const [prefs, setPrefs] = useState(false);
-  const [analytics, setAnalytics] = useState(false);
+  const [analytics] = useState(true);
 
   useEffect(() => {
     const existing = read();
@@ -46,8 +46,6 @@ export function CookieConsent() {
       else if (existing.analytics) loadAnalytics();
     }, 900);
     const onOpen = () => {
-      const c = read();
-      setAnalytics(!!c?.analytics);
       setPrefs(true);
       setVisible(true);
     };
@@ -95,7 +93,7 @@ export function CookieConsent() {
                 <b>{t.analytics}</b>
                 <small>{t.analyticsNote}</small>
               </span>
-              <input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} />
+              <input type="checkbox" checked disabled aria-label={t.analyticsNote} />
             </label>
           </div>
         ) : null}
@@ -106,11 +104,8 @@ export function CookieConsent() {
             </button>
           ) : (
             <>
-              <button type="button" className={styles.primary} onClick={() => save(false)}>
+              <button type="button" className={styles.primary} onClick={() => save(true)}>
                 {t.onlyEssential}
-              </button>
-              <button type="button" className={styles.secondary} onClick={() => save(true)}>
-                {t.allow}
               </button>
               <button type="button" className={styles.textBtn} onClick={() => setPrefs(true)}>
                 {t.prefs}

@@ -18,7 +18,7 @@ export function PrivacyView({ c }: { c: Content }) {
             <h2>خياراتك</h2>
             <p>يمكنك طلب معرفة المعلومات التي نحتفظ بها عنك، أو طلب تصحيحها، أو طلب حذفها، بمراسلة {site.email}.</p>
             <h2>ملفات تعريف الارتباط والتحليلات</h2>
-            <p>لا يضع هذا الموقع ملفات تعريف ارتباط للتتبع. إذا اخترت في إشعار الخصوصية عند زيارتك الأولى، يُحفظ اختيارك في متصفحك حتى لا نسألك مجددًا. التحليلات المجهولة دون ملفات تعريف ارتباط لا تعمل إلا إذا فعّلتها، ويمكن إيقافها في أي وقت من رابط إعدادات ملفات تعريف الارتباط في التذييل.</p>
+            <p>لا يضع هذا الموقع ملفات تعريف ارتباط للتتبع. تُقاس زيارات الصفحات عبر تحليلات Cloudflare للويب، التي لا تستخدم ملفات تعريف ارتباط ولا بصمات ولا معرّفات، وتقدّم أعدادًا إجمالية فقط مثل الصفحات والدول والمتصفحات. يُحفظ في متصفحك أنك اطّلعت على إشعار الخصوصية حتى لا نعرضه مجددًا.</p>
             <h2>التواصل</h2>
             <p>يمكن إرسال الأسئلة حول هذا الإشعار إلى {site.email}.</p>
             <p className={p.note}>آخر تحديث: سبتمبر 2026. سيُستكمل هذا الإشعار بتفاصيل الكيان القانوني والقانون الحاكم وجهات المعالجة عند تأكيدها.</p>
@@ -40,7 +40,7 @@ export function PrivacyView({ c }: { c: Content }) {
           <h2>Your choices</h2>
           <p>You can ask what information we hold about you, ask for it to be corrected, or ask for it to be deleted, by writing to {site.email}.</p>
           <h2>Cookies and analytics</h2>
-          <p>This site sets no tracking cookies. If you make a choice in the privacy notice shown on your first visit, that choice is stored in your browser so we do not ask again. Anonymous, cookieless analytics run only if you turn them on, and can be turned off at any time from the Cookie settings link in the footer.</p>
+          <p>This site sets no tracking cookies. Page views are measured with Cloudflare Web Analytics, which uses no cookies, no fingerprinting, and no identifiers, and reports only aggregate counts such as pages, countries, and browsers. Acknowledging the privacy notice on your first visit is stored in your browser so we do not show it again.</p>
           <h2>Contact</h2>
           <p>Questions about this notice can be sent to {site.email}.</p>
           <p className={p.note}>Last updated September 2026. This notice will be extended with legal entity details, governing law, and any processors used once those are confirmed.</p>
