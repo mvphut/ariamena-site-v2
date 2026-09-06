@@ -1,0 +1,6 @@
+# Ariamena vulnerability disclosure (RFC 9116)
+Contact: mailto:partnerships@ariamena.com
+Expires: 2027-09-01T00:00:00.000Z
+Preferred-Languages: en, ar
+Canonical: https://ariamena.com/.well-known/security.txt
+Policy: https://ariamena.com/responsible-data
